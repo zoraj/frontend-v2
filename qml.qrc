@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>View/Component/MmcScrollablePage.qml</file>
+        <file>View/Pms/PlanningView.qml</file>
+        <file>View/Pms/SearchView.qml</file>
+        <file>View/Pms/PreaffectationView.qml</file>
+        <file>View/Pms/NotificationView.qml</file>
+        <file>View/Pms/DeferralNoteView.qml</file>
+        <file>View/Component/MmcTextField.qml</file>
+        <file>View/Component/MmcSpinBox.qml</file>
+        <file>View/Pms/ClientAccountList.qml</file>
+        <file>View/Pms/ClientAccountListForm.ui.qml</file>
+        <file>View/Pms/BookingDetailView.qml</file>
+        <file>View/Pms/BookingDetailViewForm.ui.qml</file>
+        <file>View/Pms/CashSellingView.qml</file>
+        <file>View/Pms/CashSellingViewForm.ui.qml</file>
+        <file>View/Common/LoginView.qml</file>
+        <file>View/Common/LoginViewForm.ui.qml</file>
+        <file>View/Common/CodeConfirmationView.qml</file>
+        <file>View/Common/CodeConfirmationViewForm.ui.qml</file>
+        <file>Asset/Images/splash.png</file>
+        <file>Asset/Lang/Frontend_fr_FR.ts</file>
+        <file>Asset/Images/verouillage_caisse.png</file>
+        <file>Asset/Images/verouillage_caisse@2x.png</file>
+        <file>Asset/Images/verouillage_caisse@3x.png</file>
+        <file>Asset/Images/verouillage_caisse@4x.png</file>
+        <file>Misc/Db/mmc.prod.db3</file>
+        <file>View/Common/SplashView.qml</file>
+        <file>View/Common/SplashViewForm.ui.qml</file>
+    </qresource>
+</RCC>
