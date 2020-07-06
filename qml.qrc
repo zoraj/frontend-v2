@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>View/Component/MmcScrollablePage.qml</file>
         <file>View/Pms/PlanningView.qml</file>
         <file>View/Pms/SearchView.qml</file>
         <file>View/Pms/PreaffectationView.qml</file>
@@ -28,5 +27,12 @@
         <file>Misc/Db/mmc.prod.db3</file>
         <file>View/Common/SplashView.qml</file>
         <file>View/Common/SplashViewForm.ui.qml</file>
+        <file>View/Common/SignupView.qml</file>
+        <file>View/Common/SignupViewForm.ui.qml</file>
+        <file>Asset/Images/nouvelle_note.png</file>
+        <file>Asset/Images/nouvelle_note@2x.png</file>
+        <file>Asset/Images/nouvelle_note@3x.png</file>
+        <file>Asset/Images/nouvelle_note@4x.png</file>
+        <file>View/Component/MmcComboBox.qml</file>
     </qresource>
 </RCC>

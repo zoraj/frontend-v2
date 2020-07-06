@@ -8,6 +8,15 @@
 
 #include "Application/ApplicationManager.h"
 #include "Controller/Common/SplashViewController.h"
+#include "Model/EtablissementModel.h"
+
+void registerQmlType()
+{
+    qmlRegisterType<EtablissementModel>("cloud.multimicro.mmc.frontend", 1, 0, "EtablissementModel");
+    //qmlRegisterType<PosNoteEnteteModel>("cloud.multimicro.mmc.frontend", 1, 0, "PosNoteEnteteModel");
+    //qmlRegisterType<PosNoteDetailModel>("cloud.multimicro.mmc.frontend", 1, 0, "PosNoteDetailModel");
+}
+
 
 int main(int argc, char *argv[])
 {
@@ -30,6 +39,9 @@ int main(int argc, char *argv[])
         ApplicationManager::getInstance()->getAppContext()->rootContext = engine.rootContext();
         SplashViewController splashViewController;
         ApplicationManager::getInstance()->getAppContext()->rootContext->setContextProperty("_splashViewController", &splashViewController);
+
+        // Register All type
+        registerQmlType();
 
         const QUrl url(QStringLiteral("qrc:/main.qml"));
         QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

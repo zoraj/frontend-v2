@@ -34,21 +34,6 @@ ApplicationWindow {
         ListElement { title: "Notification"; source: "qrc:/View/Pos/" }
     }
 
-    Timer {
-        interval: 2000; running: true; repeat: false
-        onTriggered: {
-            //menuListView.model = pmsModel
-            mainLoader.source = "/View/Common/LoginView.qml"
-            /*
-            if ( _applicationContext.apikey !== "") {
-                mainContentView.source = "qrc:/View/Common/LoginView.qml"
-            }
-            else {
-                mainContentView.source = "qrc:/View/Common/SignUpView.qml"
-            }
-            */
-        }
-    }
     // UI Logic
     // ***************************************** ACTION *******************************************************
     Action {
@@ -139,21 +124,26 @@ ApplicationWindow {
     }
 
     // ********************************************** BODY ***************************************************
-
     StackView {
         id: mainStackView
         anchors.fill: parent
-        Loader {
-            id: mainLoader
-            anchors.fill: parent
-            source: "/View/Common/SplashView.qml"
-            onLoaded: {
-                // No header/footer during first loading
-                toolBar.visible = false
-                tabBar.visible = false
+        initialItem: SplashView {}
+/*
+        Component {
+            id: component
+            Loader {
+                id: loader
+                onLoaded: {
+
+                }
             }
         }
-        //initialItem: SplashView {}
+*/
+        Component.onCompleted: {
+            // No header/footer during first loading
+            toolBar.visible = false
+            tabBar.visible = false
+        }
     }
 
     // ********************************************** FOOTER **************************************************
