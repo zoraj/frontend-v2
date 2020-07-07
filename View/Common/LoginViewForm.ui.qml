@@ -3,8 +3,16 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import "qrc:/View/Component"
 
-MmcScrollablePage {
+Flickable {
+    property alias signinButton: signinButton
+    property alias loginTextField: loginTextField
+    property alias passwordTextField: passwordTextField
+
+    contentHeight: mainColumn.height
+    flickableDirection: Flickable.AutoFlickIfNeeded
+
     Column {
+        id: mainColumn
         spacing: 10
         width: parent.width
         topPadding: mainWindow.height / 4
@@ -12,6 +20,7 @@ MmcScrollablePage {
 
         Image {
             source: "qrc:/Asset/Images/verouillage_caisse.png"
+            anchors.horizontalCenter: parent.horizontalCenter
         }
         Label {
             width: parent.width
@@ -26,13 +35,14 @@ MmcScrollablePage {
             title: qsTr("LOGIN")
         }
         RowLayout {
-                anchors.horizontalCenter: parent.horizontalCenter
-                MmcTextField {
+            anchors.horizontalCenter: parent.horizontalCenter
+            MmcTextField {
                 id: passwordTextField
                 title: qsTr("PASSWORD")
                 isPassword: true
             }
             Button {
+                id: signinButton
                 text: ">"
             }
         }

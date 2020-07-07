@@ -6,6 +6,11 @@
 #include "Util/HttpUtil.h"
 #include "Util/Constant.h"
 #include "Util/HttpRequest.h"
+#include "Application/ApplicationManager.h"
+
+#define APP_CONTEXT_API_KEY ApplicationManager::getInstance()->getAppContext()->apikey
+#define APP_CONTEXT_TOKEN ApplicationManager::getInstance()->getAppContext()->token
+
 
 class BaseService : public QObject
 {

@@ -16,10 +16,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         Application/ApplicationManager.cpp \
         Cache/MmcParametrageCache.cpp \
+        Controller/Common/CodeConfirmationViewController.cpp \
+        Controller/Common/LoginViewController.cpp \
         Controller/Common/SignupViewController.cpp \
         Controller/Common/SplashViewController.cpp \
         Service/BaseService.cpp \
+        Service/DeviceService.cpp \
         Service/EstablishmentService.cpp \
+        Service/UserService.cpp \
         Util/HttpUtil.cpp \
         Util/Util.cpp \
         main.cpp
@@ -76,13 +80,18 @@ DISTFILES += \
 HEADERS += \
     Application/ApplicationManager.h \
     Cache/MmcParametrageCache.h \
+    Controller/Common/CodeConfirmationViewController.h \
+    Controller/Common/LoginViewController.h \
     Controller/Common/SignupViewController.h \
     Controller/Common/SplashViewController.h \
+    Model/DeviceModel.h \
     Model/EtablissementModel.h \
     Model/MmcParametrageModel.h \
     Model/MmcUserModel.h \
     Service/BaseService.h \
+    Service/DeviceService.h \
     Service/EstablishmentService.h \
+    Service/UserService.h \
     Util/Constant.h \
     Util/HttpRequest.h \
     Util/HttpUtil.h \

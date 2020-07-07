@@ -1,29 +1,28 @@
-import QtQuick 2.4
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 
 CodeConfirmationViewForm {
-    /*
     Connections {
         target: _codeConfirmationViewController
         onValidateCodeTriggeredTerminated: {
             if (result) {
                 resultText.opacity = 1
-                popupToast.start(qsTr("ACTIVATION_CODE_SUCCESS"))
                 timer.running = true
             }
             else {
-                popupToast.start(qsTr("ACTIVATION_CODE_FAILED"))
-            }
-        }
-    }*/
 
-    /*        Timer {
-            id: timer
-            interval: 3000; running: false; repeat: false
-            onTriggered: {
-                mainLoader.source = "qrc:/View/Common/LoginView.qml"
             }
         }
-*/
+    }
+
+    Timer {
+        id: timer
+        interval: 3000; running: false; repeat: false
+        onTriggered: {
+            mainStackView.replace(null, "qrc:/View/Common/LoginView.qml", StackView.Immediate)
+        }
+    }
+
     Component.onCompleted: {
         toolBar.visible = true
     }

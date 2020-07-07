@@ -3,23 +3,17 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import "qrc:/View/Component"
 
+Flickable {
+    contentHeight: mainColumn.height
+    flickableDirection: Flickable.AutoFlickIfNeeded
 
-MmcScrollablePage {
     property alias clientAccountListButton: clientAccountListButton
     Column {
+        id: mainColumn
         spacing: 10
         width: parent.width
         topPadding: 100
 
-        /*
-        Label {
-            width: parent.width
-            wrapMode: Label.Wrap
-            horizontalAlignment: Qt.AlignHCenter
-            text: "SpinBox allows the user to choose an integer value by clicking the up or down indicator buttons, "
-                + "by pressing up or down on the keyboard, or by entering a text value in the input field."
-        }
-        */
         RowLayout {
             id: firstRow
             anchors.horizontalCenter: parent.horizontalCenter
@@ -34,7 +28,7 @@ MmcScrollablePage {
             }
         }
 
-        MmcTextField {
+        MmcDatePicker {
             id: departureTextField
             title: qsTr("DEPARTURE")
             anchors.left: firstRow.left

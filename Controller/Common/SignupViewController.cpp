@@ -9,6 +9,7 @@ void SignupViewController::validateButtonClicked(EtablissementModel *etablisseme
 {
     if (etablissement != nullptr) {
         EstablishmentService *establishmentService = new EstablishmentService();
+        qDebug() << etablissement->name;
         establishmentService->postSignup(*etablissement);
         QObject::connect(establishmentService, &EstablishmentService::postSignupFinished, [=] (const QByteArray &response, const int status){
             if (status == Constant::HttpStatusCode::OK) {

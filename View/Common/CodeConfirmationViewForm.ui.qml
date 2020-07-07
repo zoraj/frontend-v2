@@ -3,7 +3,10 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import "qrc:/View/Component"
 
-MmcScrollablePage {
+Flickable {
+    contentHeight: mainColumn.height
+    flickableDirection: Flickable.AutoFlickIfNeeded
+
     property alias t0: t0
     property alias t1: t1
     property alias t2: t2
@@ -13,6 +16,7 @@ MmcScrollablePage {
     property alias resultText: resultText
 
     Column {
+        id: mainColumn
         spacing: 20
         anchors.centerIn: parent
         topPadding: mainWindow.height / 4

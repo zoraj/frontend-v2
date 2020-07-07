@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>View/Pms/PlanningView.qml</file>
         <file>View/Pms/SearchView.qml</file>
         <file>View/Pms/PreaffectationView.qml</file>
         <file>View/Pms/NotificationView.qml</file>
@@ -34,5 +33,12 @@
         <file>Asset/Images/nouvelle_note@3x.png</file>
         <file>Asset/Images/nouvelle_note@4x.png</file>
         <file>View/Component/MmcComboBox.qml</file>
+        <file>View/Pms/PlanningChoiceView.qml</file>
+        <file>View/Pms/PlanningChoiceViewForm.ui.qml</file>
+        <file>View/Pms/PlanningView.qml</file>
+        <file>View/Pms/PlanningViewForm.ui.qml</file>
+        <file>View/Component/MmcDatePicker.qml</file>
+        <file>View/Component/MmcDatePickerDialog.qml</file>
+        <file>View/Component/MmcDatePickerPopup.qml</file>
     </qresource>
 </RCC>

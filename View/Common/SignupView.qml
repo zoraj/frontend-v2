@@ -3,6 +3,10 @@ import cloud.multimicro.mmc.frontend 1.0
 
 SignupViewForm {
 
+    Connections {
+        target: _signupViewController
+    }
+
     EtablissementModel {
         id: etablissement
     }
@@ -31,7 +35,7 @@ SignupViewForm {
             etablissement.email = email1TextField.text
             etablissement.phone = phoneTextField.text
             busyIndicator.opacity = 1
-            //_signupViewController.validateButtonClicked(etablissement)
+            _signupViewController.validateButtonClicked(etablissement)
         }
     }
 

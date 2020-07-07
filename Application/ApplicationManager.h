@@ -20,7 +20,7 @@ class ApplicationContext: public QObject
 public:
     QQmlContext *rootContext;
 
-    MmcUserModel user;
+    MmcUserModel *user;
     QString language;
     QString token;
     QString apikey;

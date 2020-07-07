@@ -7,6 +7,7 @@ ColumnLayout {
     property bool isMandatory: false
     property bool isPassword: false
     property int textWidth: 200
+    property string text: textField.text
 
     implicitHeight: 200
     implicitWidth: 200

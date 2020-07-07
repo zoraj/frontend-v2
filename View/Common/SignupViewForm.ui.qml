@@ -5,9 +5,6 @@ import "qrc:/View/Component"
 
 
 Flickable {
-    contentHeight: mainColumn.height
-    flickableDirection: Flickable.AutoFlickIfNeeded
-
     property alias activateDeviceButton: activateDeviceButton
     property alias validateButton: validateButton
     property alias nameTextField: nameTextField
@@ -20,6 +17,9 @@ Flickable {
     property alias typeComboBox: typeComboBox
     property alias countryComboBox: countryComboBox
     property alias busyIndicator: busyIndicator
+
+    contentHeight: mainColumn.height
+    flickableDirection: Flickable.AutoFlickIfNeeded
 
     Column {
         id: mainColumn

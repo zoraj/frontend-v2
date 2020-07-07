@@ -18,7 +18,7 @@ ApplicationWindow {
     // Model for PMS menu
     ListModel {
         id: pmsModel
-        ListElement { title: "PLANNING"; type: "separator"; source: "qrc:/View/Pms/PlanningView.qml" }
+        ListElement { title: "PLANNING"; type: "separator"; source: "qrc:/View/Pms/PlanningChoiceView.qml" }
         ListElement { title: "RECHERCHE"; source: "qrc:/View/Pms/SearchView.qml" }
         ListElement { title: "PREAFFECTATION"; source: "qrc:/View/Pms/PreaffectationView.qml" }
         ListElement { title: "VENTE AU COMPTANT"; source: "qrc:/View/Pms/CashSellingView.qml" }
@@ -128,17 +128,7 @@ ApplicationWindow {
         id: mainStackView
         anchors.fill: parent
         initialItem: SplashView {}
-/*
-        Component {
-            id: component
-            Loader {
-                id: loader
-                onLoaded: {
 
-                }
-            }
-        }
-*/
         Component.onCompleted: {
             // No header/footer during first loading
             toolBar.visible = false
@@ -157,7 +147,7 @@ ApplicationWindow {
             TabButton {
                 text: title
                 onClicked: {
-                    mainLoader.source = source
+                    mainStackView.replace(null, source, StackView.Immediate)
                     moduleIndex = index
                 }
             }
