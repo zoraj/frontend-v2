@@ -74,6 +74,7 @@ namespace Constant {
         RESA = 2,
         HOUSEKEEPING = 3,
         POS_COLLECTIVITE = 4,
+        PMS = 5
     };
 }
 

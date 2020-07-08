@@ -5,6 +5,7 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Layouts 1.12
 import Qt.labs.settings 1.0
 import "qrc:/View/Common"
+import "qrc:/View/Component"
 
 ApplicationWindow {
     id: mainWindow
@@ -152,5 +153,9 @@ ApplicationWindow {
                 }
             }
         }
+    }
+
+    MmcDatePickerDialog {
+        id: datepickerDialog
     }
 }

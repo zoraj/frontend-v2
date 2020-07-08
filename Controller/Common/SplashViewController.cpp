@@ -20,9 +20,11 @@ void SplashViewController::loadLocalSettings() const
 void SplashViewController::viewLoaded()
 {
     loadLocalSettings();
+    emit viewLoadedWithResult("NO_APIKEY");
+    /*
     if (ApplicationManager::getInstance()->getAppContext()->apikey.isNull()) {
         emit viewLoadedWithResult("NO_APIKEY");
-    }
+    }*/
 }
 
 

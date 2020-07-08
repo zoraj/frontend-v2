@@ -5,6 +5,8 @@
 #include "Application/ApplicationManager.h"
 #include "Util/Constant.h"
 #include "Service/UserService.h"
+
+#include "Controller/Pms/PmsBookingDetailViewController.h"
 /*
 #include "Model/PmsCalendrierNettoyageModel.h"
 #include "Model/PmsCategorieChambreModel.h"
@@ -78,7 +80,7 @@ class LoginViewController : public QObject
     Q_OBJECT
 private:
     void checkCredentials(const QString &login, const QString &password);
-    //void registerControllers(Constant::Module module);
+    void registerControllers(Constant::Module module);
     void registerCurrentUser(MmcUserModel *user);
     //void retrieveAndCacheCommonData();
     //void retrieveAndCacheData(Constant::Module module);

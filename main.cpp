@@ -13,11 +13,12 @@
 #include "Controller/Common/LoginViewController.h"
 
 #include "Model/EtablissementModel.h"
+#include "Model/PmsNoteEnteteModel.h"
 
 void registerQmlType()
 {
     qmlRegisterType<EtablissementModel>("cloud.multimicro.mmc.frontend", 1, 0, "EtablissementModel");
-    //qmlRegisterType<PosNoteEnteteModel>("cloud.multimicro.mmc.frontend", 1, 0, "PosNoteEnteteModel");
+    qmlRegisterType<PmsNoteEnteteModel>("cloud.multimicro.mmc.frontend", 1, 0, "PmsNoteEnteteModel");
     //qmlRegisterType<PosNoteDetailModel>("cloud.multimicro.mmc.frontend", 1, 0, "PosNoteDetailModel");
 }
 

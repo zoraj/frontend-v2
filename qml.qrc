@@ -39,6 +39,13 @@
         <file>View/Pms/PlanningViewForm.ui.qml</file>
         <file>View/Component/MmcDatePicker.qml</file>
         <file>View/Component/MmcDatePickerDialog.qml</file>
-        <file>View/Component/MmcDatePickerPopup.qml</file>
+        <file>View/Pms/BookingDetailRoomRepartitionView.qml</file>
+        <file>View/Pms/BookingDetailRoomRepartitionViewForm.ui.qml</file>
+        <file>View/Pms/BookingDetailGeneralInformationView.qml</file>
+        <file>View/Pms/BookingDetailGeneralInformationViewForm.ui.qml</file>
+        <file>View/Pms/BookingDetailPricingView.qml</file>
+        <file>View/Pms/BookingDetailPricingViewForm.ui.qml</file>
+        <file>View/Pms/BookingDetailComplementaryInformationView.qml</file>
+        <file>View/Pms/BookingDetailComplementaryInformationViewForm.ui.qml</file>
     </qresource>
 </RCC>

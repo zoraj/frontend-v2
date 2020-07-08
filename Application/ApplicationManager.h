@@ -26,6 +26,8 @@ public:
     QString apikey;
     QString dateSoftware;
     Constant::Module module;
+    int brigade;
+    QString deviceUuid;
 };
 
 // Class definition

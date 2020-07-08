@@ -4,46 +4,11 @@ LoginViewController::LoginViewController(QObject *parent) : QObject(parent)
 {
 
 }
+
+
+
+
 /*
-
-
-void LoginViewController::registerControllers(Constant::Module module)
-{
-    switch (module) {
-    case Constant::Module::POS_TRADITIONAL: {
-        auto posNewNoteViewController = new PosNewNoteViewController();
-        ApplicationManager::getInstance()->getAppContext()->rootContext->setContextProperty("_posNewNoteViewController", posNewNoteViewController);
-
-        auto posTablePlanViewController = new PosTablePlanViewController();
-        ApplicationManager::getInstance()->getAppContext()->rootContext->setContextProperty("_posTablePlanViewController", posTablePlanViewController);
-
-        auto posPendingNoteViewController = new PosPendingNoteViewController();
-        ApplicationManager::getInstance()->getAppContext()->rootContext->setContextProperty("_posPendingNoteViewController", posPendingNoteViewController);
-
-        auto posProductViewController = new PosProductViewController();
-        ApplicationManager::getInstance()->getAppContext()->rootContext->setContextProperty("_posProductViewController", posProductViewController);
-    }
-        break;
-    case Constant::Module::RESA:
-        break;
-    case Constant::Module::HOUSEKEEPING:
-        break;
-    case Constant::Module::RECEP: {
-        //PosNewNoteViewController posNewNoteViewController;
-        //ApplicationManager::getInstance()->getAppContext()->rootContext->setContextProperty("_posNewNoteViewController", &posNewNoteViewController);
-
-        auto pmsPlanningViewController = new PmsPlanningViewController();
-        ApplicationManager::getInstance()->getAppContext()->rootContext->setContextProperty("_pmsPlanningViewController", pmsPlanningViewController);
-    }
-        break;
-    case Constant::Module::POS_COLLECTIVITE:
-        break;
-    case Constant::Module::Unknown:
-        break;
-    }
-}
-
-
 
 // TODO: Move this method to a better place, it overcharges the actual controller
 void LoginViewController::retrieveAndCacheCommonData()
@@ -441,6 +406,46 @@ void LoginViewController::retrieveAndCacheData(Constant::Module module)
 }
 */
 
+
+void LoginViewController::registerControllers(Constant::Module module)
+{
+    switch (module) {
+    case Constant::Module::POS_TRADITIONAL: {
+        /*
+        auto posNewNoteViewController = new PosNewNoteViewController();
+        ApplicationManager::getInstance()->getAppContext()->rootContext->setContextProperty("_posNewNoteViewController", posNewNoteViewController);
+
+        auto posTablePlanViewController = new PosTablePlanViewController();
+        ApplicationManager::getInstance()->getAppContext()->rootContext->setContextProperty("_posTablePlanViewController", posTablePlanViewController);
+
+        auto posPendingNoteViewController = new PosPendingNoteViewController();
+        ApplicationManager::getInstance()->getAppContext()->rootContext->setContextProperty("_posPendingNoteViewController", posPendingNoteViewController);
+
+        auto posProductViewController = new PosProductViewController();
+        ApplicationManager::getInstance()->getAppContext()->rootContext->setContextProperty("_posProductViewController", posProductViewController);
+        */
+    }
+        break;
+    case Constant::Module::PMS: {
+        auto pmsBookingDetailViewController = new PmsBookingDetailViewController();
+        ApplicationManager::getInstance()->getAppContext()->rootContext->setContextProperty("_pmsBookingDetailViewController", pmsBookingDetailViewController);
+        break;
+    }
+    case Constant::Module::HOUSEKEEPING:
+        break;
+    case Constant::Module::RECEP: {
+        break;
+    }
+    case Constant::RESA:
+        break;
+    case Constant::Module::POS_COLLECTIVITE:
+        break;
+
+    case Constant::Module::Unknown:
+        break;
+    }
+}
+
 void LoginViewController::registerCurrentUser(MmcUserModel *user)
 {
     ApplicationManager::getInstance()->getAppContext()->user = user;
@@ -456,6 +461,7 @@ void LoginViewController::checkCredentials(const QString &login, const QString &
 
             MmcUserModel user(response);
             registerCurrentUser(&user);
+            registerControllers(Constant::PMS);
             // Retrieve recent data from the cloud
             //retrieveAndCacheCommonData();
 

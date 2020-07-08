@@ -14,15 +14,15 @@ Flickable {
 
     Column {
         id: mainColumn
-        spacing: 20
+        spacing: 50
         anchors.centerIn: parent
         topPadding: mainWindow.height / 4
 
         Rectangle {
             id: planningRectangle
             color: "red"
-            width: 300
-            height: 80
+            width: mainWindow.width / 2
+            height: 100
             Label {
                 text: qsTr("PLANNING_BY_DAY")
                 color: "white"
@@ -37,8 +37,8 @@ Flickable {
 
         Rectangle {
             color: "blue"
-            width: 300
-            height: 80
+            width: mainWindow.width / 2
+            height: 100
             Label {
                 text: qsTr("PLANNING_BY_ROOM")
                 color: "white"
@@ -48,8 +48,8 @@ Flickable {
 
         Rectangle {
             color: "grey"
-            width: 300
-            height: 80
+            width: mainWindow.width / 2
+            height: 100
             Label {
                 text: qsTr("PLANNING_BY_TYPE")
                 color: "white"

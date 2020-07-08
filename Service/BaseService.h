@@ -10,7 +10,8 @@
 
 #define APP_CONTEXT_API_KEY ApplicationManager::getInstance()->getAppContext()->apikey
 #define APP_CONTEXT_TOKEN ApplicationManager::getInstance()->getAppContext()->token
-
+#define APP_CONTEXT_BRIGADE ApplicationManager::getInstance()->getAppContext()->brigade
+#define APP_CONTEXT_DEVICE_UUID ApplicationManager::getInstance()->getAppContext()->deviceUuid
 
 class BaseService : public QObject
 {
