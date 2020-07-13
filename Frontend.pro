@@ -20,11 +20,13 @@ SOURCES += \
         Controller/Common/LoginViewController.cpp \
         Controller/Common/SignupViewController.cpp \
         Controller/Common/SplashViewController.cpp \
+        Controller/Pms/CashSaleViewController.cpp \
         Controller/Pms/PmsBookingDetailViewController.cpp \
         Service/BaseService.cpp \
         Service/DeviceService.cpp \
         Service/EstablishmentService.cpp \
         Service/NoteService.cpp \
+        Service/RoomService.cpp \
         Service/UserService.cpp \
         Util/HttpUtil.cpp \
         Util/Util.cpp \
@@ -86,16 +88,21 @@ HEADERS += \
     Controller/Common/LoginViewController.h \
     Controller/Common/SignupViewController.h \
     Controller/Common/SplashViewController.h \
+    Controller/Pms/CashSaleViewController.h \
     Controller/Pms/PmsBookingDetailViewController.h \
     Model/DeviceModel.h \
     Model/EtablissementModel.h \
     Model/MmcParametrageModel.h \
     Model/MmcUserModel.h \
+    Model/PmsChambreModel.h \
     Model/PmsNoteEnteteModel.h \
+    Model/PmsTypeChambreModel.h \
+    Model/PmsVenteComptantModel.h \
     Service/BaseService.h \
     Service/DeviceService.h \
     Service/EstablishmentService.h \
     Service/NoteService.h \
+    Service/RoomService.h \
     Service/UserService.h \
     Util/Constant.h \
     Util/HttpRequest.h \

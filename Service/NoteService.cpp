@@ -106,8 +106,8 @@ void NoteService::postNotePmsHeader(const PmsNoteEnteteModel &headerNote)
     HttpRequest request { fullPath(Constant::WS_METHOD_NOTES_PMS_HEADER),
                 "POST",
                 payload,
-                APP_CONTEXT_API_KEY,
-                APP_CONTEXT_TOKEN};
+                apiKey,
+                bearerToken};
     executeRequest(request);
 }
 

@@ -11,8 +11,8 @@ void DeviceService::checkCodeConfirmation(const QString &code)
     HttpRequest request { url,
                     "GET",
                     QJsonObject(),
-                    APP_CONTEXT_API_KEY,
-                    APP_CONTEXT_TOKEN};
+                    apiKey,
+                    bearerToken};
     executeRequest(request);
 }
 

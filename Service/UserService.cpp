@@ -13,8 +13,8 @@ void UserService::postUserCredentials(const QString &login, const QString &passw
     HttpRequest request { fullPath(Constant::WS_METHOD_LOGIN),
                 "POST",
                 payload,
-                APP_CONTEXT_API_KEY,
-                APP_CONTEXT_TOKEN};
+                apiKey,
+                bearerToken};
     executeRequest(request);
 }
 

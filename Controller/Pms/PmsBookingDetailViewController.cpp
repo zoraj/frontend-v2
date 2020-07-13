@@ -8,17 +8,17 @@ PmsBookingDetailViewController::PmsBookingDetailViewController(QObject *parent) 
 
 
 
-/*
 // Private Methods
 void PmsBookingDetailViewController::loadData()
 {
     auto roomService = new RoomService();
-    roomService->getRoom();
-    QObject::connect(roomService, &RoomService::getRoomFinished, [=] (const QByteArray &response, const int status){
+    roomService->getRoomTypes();
+    QObject::connect(roomService, &RoomService::getRoomTypesFinished, [=] (const QByteArray &response, const int status){
         if (status == Constant::HttpStatusCode::OK) {
             //emit signinSuccess(user.moduleAuthorized);
-            rooms = PmsChambreModel::fromArray(response);
-            chambreListModel->setRooms(rooms);
+            roomsType = PmsTypeChambreModel::fromArray(response);
+            //chambreListModel->setRooms(rooms);
+            qDebug() << "Type room fetched and it contains " << roomsType.length();
         }
         else {
             qDebug() << "Something went wrong. Bad credentials.";
@@ -26,11 +26,11 @@ void PmsBookingDetailViewController::loadData()
         roomService->deleteLater();
     });
 }
-*/
 
 // Event definition
 void PmsBookingDetailViewController::validateButtonClicked(PmsNoteEnteteModel *headerNote)
 {
+    //loadData();
     auto noteService = new NoteService();
     noteService->postNotePmsHeader(*headerNote);
 

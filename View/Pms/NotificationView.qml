@@ -1,10 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.4
 
-Rectangle {
-    width: 400
-    height: 400
-    Text {
-        id: name
-        text: qsTr("NOTIFICATION")
-    }
+NotificationViewForm {
 }

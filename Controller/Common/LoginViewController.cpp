@@ -406,6 +406,30 @@ void LoginViewController::retrieveAndCacheData(Constant::Module module)
 }
 */
 
+void LoginViewController::loadData(Constant::Module module)
+{
+    switch (module) {
+    case Constant::Module::POS_TRADITIONAL: {
+        // POS Should be cached for online usage
+        }
+        break;
+    case Constant::Module::PMS: {
+
+        }
+    case Constant::Module::HOUSEKEEPING:
+        break;
+    case Constant::Module::RECEP: {
+        break;
+        }
+    case Constant::RESA:
+        break;
+    case Constant::Module::POS_COLLECTIVITE:
+        break;
+
+    case Constant::Module::Unknown:
+        break;
+        }
+}
 
 void LoginViewController::registerControllers(Constant::Module module)
 {

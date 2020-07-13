@@ -82,6 +82,7 @@ private:
     void checkCredentials(const QString &login, const QString &password);
     void registerControllers(Constant::Module module);
     void registerCurrentUser(MmcUserModel *user);
+    void loadData(Constant::Module module);
     //void retrieveAndCacheCommonData();
     //void retrieveAndCacheData(Constant::Module module);
 public:

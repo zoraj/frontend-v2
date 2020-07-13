@@ -2,7 +2,8 @@
 
 BaseService::BaseService(QObject *parent): QObject(parent)
 {
-
+    apiKey = APP_CONTEXT_API_KEY;
+    bearerToken = APP_CONTEXT_TOKEN;
 }
 
 QString BaseService::fullPath(const QString &method) const

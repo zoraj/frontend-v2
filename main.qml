@@ -18,13 +18,19 @@ ApplicationWindow {
 
     // Model for PMS menu
     ListModel {
-        id: pmsModel
+        id: pmsTabBarModel
         ListElement { title: "PLANNING"; type: "separator"; source: "qrc:/View/Pms/PlanningChoiceView.qml" }
-        ListElement { title: "RECHERCHE"; source: "qrc:/View/Pms/SearchView.qml" }
-        ListElement { title: "PREAFFECTATION"; source: "qrc:/View/Pms/PreaffectationView.qml" }
-        ListElement { title: "VENTE AU COMPTANT"; source: "qrc:/View/Pms/CashSellingView.qml" }
-        ListElement { title: "TRANSFERT NOTE"; source: "qrc:/View/Pms/DeferralNoteView.qml" }
+        ListElement { title: qsTr("SEARCH"); source: "qrc:/View/Pms/BookingSearchView.qml" }
+        ListElement { title: qsTr("PENDING_NOTE"); source: "qrc:/View/Pms/NotificationView.qml" }
         ListElement { title: "NOTIFICATION"; source: "qrc:/View/Pms/NotificationView.qml" }
+    }
+    ListModel {
+        id: pmsDrawerModel
+        ListElement { title: "VENTE AU COMPTANT"; source: "qrc:/View/Pms/CashSaleView.qml" }
+        ListElement { title: "PREAFFECTATION"; source: "qrc:/View/Pms/PreaffectationView.qml" }
+        ListElement { title: "TRANSFERT NOTE"; source: "qrc:/View/Pms/DeferralNoteView.qml" }
+        ListElement { title: "---"; source: "" }
+        ListElement { title: "DISCONNECT"; source: "qrc:/View/Common/LoginView.qml" }
     }
 
     // Model for POS menu
@@ -100,7 +106,8 @@ ApplicationWindow {
 
     Drawer {
         id: drawer
-        width: Math.min(mainWindow.width, mainWindow.height) / 3 * 2
+        //width: Math.min(mainWindow.width, mainWindow.height) / 3
+        width: 300
         height: mainWindow.height
         /*interactive: stackView.depth === 1*/
 
@@ -109,14 +116,15 @@ ApplicationWindow {
             focus: true
             currentIndex: -1
             anchors.fill: parent
+            model: module === 1 ? pmsDrawerModel : posModel
 
             delegate: ItemDelegate {
                 width: parent.width
                 text: model.title
                 highlighted: ListView.isCurrentItem
                 onClicked: {
-                    listView.currentIndex = index
-                    stackView.push(model.source)
+                    menuListView.currentIndex = index
+                    mainStackView.replace(null, model.source, StackView.Immediate)
                     drawer.close()
                 }
             }
@@ -144,7 +152,7 @@ ApplicationWindow {
         id: tabBar
         width: parent.width
         Repeater {
-            model: module === 1 ? pmsModel : posModel
+            model: module === 1 ? pmsTabBarModel : posModel
             TabButton {
                 text: title
                 onClicked: {

@@ -31,6 +31,8 @@ public:
 };
 
 // Class definition
+// This singleton holds the application current state
+// This shouldn't be abused to avoid memory overhead.
 class ApplicationManager : public QObject
 {
     Q_OBJECT
