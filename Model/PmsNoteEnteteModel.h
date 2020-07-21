@@ -20,6 +20,7 @@ class PmsNoteEnteteModel: public QObject
     Q_PROPERTY(int nbChambre MEMBER nbChambre)
     Q_PROPERTY(int nbEnfant MEMBER nbEnfant)
     Q_PROPERTY(int mmcClientId MEMBER mmcClientId)
+    Q_PROPERTY(QString mmcClientName MEMBER mmcClientName)
     Q_PROPERTY(QString nomNote MEMBER nomNote)
     Q_PROPERTY(QString numeroReservation MEMBER numeroReservation)
     Q_PROPERTY(QString posteUuid MEMBER posteUuid)
@@ -39,6 +40,7 @@ public:
     int nbChambre;
     int nbEnfant;
     int mmcClientId;
+    QString mmcClientName; // Not in the payload, only needed for UI
     QString nomNote;
     QString numeroReservation;
     QString posteUuid;

@@ -8,7 +8,6 @@ Flickable {
     flickableDirection: Flickable.AutoFlickIfNeeded
 
     property alias clientAccountListButton: clientAccountListButton
-    property alias validateButton: validateButton
     property alias arrivalDatePicker: arrivalDatePicker
     property alias nbNightSpinBox: nbNightSpinBox
     property alias departureDatePicker: departureDatePicker
@@ -87,17 +86,5 @@ Flickable {
                 text: ">"
             }
         }
-        RowLayout {
-            anchors.left: firstRow.left
-            Button {
-                id: validateButton
-                text: qsTr("VALIDATE")
-            }
-            Button {
-                id: cancelButton
-                text: qsTr("CANCEL")
-            }
-        }
-
     }
 }

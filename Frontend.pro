@@ -22,7 +22,9 @@ SOURCES += \
         Controller/Common/SplashViewController.cpp \
         Controller/Pms/CashSaleViewController.cpp \
         Controller/Pms/PmsBookingDetailViewController.cpp \
+        ListModel/MmcClientListModel.cpp \
         Service/BaseService.cpp \
+        Service/ClientService.cpp \
         Service/DeviceService.cpp \
         Service/EstablishmentService.cpp \
         Service/NoteService.cpp \
@@ -90,8 +92,10 @@ HEADERS += \
     Controller/Common/SplashViewController.h \
     Controller/Pms/CashSaleViewController.h \
     Controller/Pms/PmsBookingDetailViewController.h \
+    ListModel/MmcClientListModel.h \
     Model/DeviceModel.h \
     Model/EtablissementModel.h \
+    Model/MmcClientModel.h \
     Model/MmcParametrageModel.h \
     Model/MmcUserModel.h \
     Model/PmsChambreModel.h \
@@ -99,6 +103,7 @@ HEADERS += \
     Model/PmsTypeChambreModel.h \
     Model/PmsVenteComptantModel.h \
     Service/BaseService.h \
+    Service/ClientService.h \
     Service/DeviceService.h \
     Service/EstablishmentService.h \
     Service/NoteService.h \

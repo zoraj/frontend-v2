@@ -6,11 +6,38 @@ PmsBookingDetailViewController::PmsBookingDetailViewController(QObject *parent) 
     //chambreListModel = new PmsChambreListModel(parent);
 }
 
-
-
 // Private Methods
+void PmsBookingDetailViewController::persistData()
+{
+    auto noteService = new NoteService();
+    noteService->postNotePmsHeader(*headerNote);
+
+    QObject::connect(noteService, &NoteService::postNotePmsHeaderFinished, [=] (const QByteArray &response, const int status){
+        if (status == Constant::HttpStatusCode::OK) {
+            //rooms = PmsChambreModel::fromArray(response);
+            //chambreListModel->setRooms(rooms);
+        }
+        noteService->deleteLater();
+        emit validateButtonFinished(status == Constant::HttpStatusCode::OK);
+    });
+}
+
 void PmsBookingDetailViewController::loadData()
 {
+    // Load client account list
+    auto clientService = new ClientService();
+    clientService->getAll();
+    QObject::connect(clientService, &ClientService::getAllFinished, [=] (const QByteArray &response, const int status){
+        if (status == Constant::HttpStatusCode::OK) {
+            clients = MmcClientModel::fromArray(response);
+            qDebug() << "We've got " << clients.length() << " clients";
+
+            clientListModel = new MmcClientListModel(nullptr);
+            clientListModel->setClients(clients);
+        }
+    });
+
+    // Load room list
     auto roomService = new RoomService();
     roomService->getRoomTypes();
     QObject::connect(roomService, &RoomService::getRoomTypesFinished, [=] (const QByteArray &response, const int status){
@@ -28,17 +55,27 @@ void PmsBookingDetailViewController::loadData()
 }
 
 // Event definition
-void PmsBookingDetailViewController::validateButtonClicked(PmsNoteEnteteModel *headerNote)
+void PmsBookingDetailViewController::setClient(int index)
 {
-    //loadData();
-    auto noteService = new NoteService();
-    noteService->postNotePmsHeader(*headerNote);
+    if (headerNote != nullptr) {
+        clientId = clients.at(index).id;
+        headerNote->mmcClientName = clients.at(index).nom;
 
-    QObject::connect(noteService, &NoteService::postNotePmsHeaderFinished, [=] (const QByteArray &response, const int status){
-        if (status == Constant::HttpStatusCode::OK) {
-            //rooms = PmsChambreModel::fromArray(response);
-            //chambreListModel->setRooms(rooms);
-        }
-        noteService->deleteLater();
-    });
+        emit sigRefreshUI(headerNote);
+    }
+}
+
+void PmsBookingDetailViewController::componentUILoaded()
+{
+    headerNote = new PmsNoteEnteteModel();
+    loadData();    
+}
+
+void PmsBookingDetailViewController::validateButtonClicked(PmsNoteEnteteModel *pHeaderNote)
+{
+    headerNote = pHeaderNote;
+    headerNote->mmcClientId = clientId;
+    headerNote->posteUuid = "465454";
+
+    persistData();
 }

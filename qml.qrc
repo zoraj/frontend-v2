@@ -51,5 +51,7 @@
         <file>View/Pms/CashSaleViewDetailForm.ui.qml</file>
         <file>View/Pms/NotificationView.qml</file>
         <file>View/Pms/NotificationViewForm.ui.qml</file>
+        <file>View/Pms/BookingDetailArrhesView.qml</file>
+        <file>View/Pms/BookingDetailArrhesViewForm.ui.qml</file>
     </qresource>
 </RCC>

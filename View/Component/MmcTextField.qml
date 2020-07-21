@@ -8,6 +8,7 @@ ColumnLayout {
     property bool isPassword: false
     property int textWidth: 200
     property string text: textField.text
+    property string value: ""
 
     implicitHeight: 200
     implicitWidth: 200
@@ -19,5 +20,6 @@ ColumnLayout {
         id: textField
         echoMode: isPassword ? TextInput.Password : TextInput.Normal
         Layout.preferredWidth: textWidth
+        text: value
     }
 }

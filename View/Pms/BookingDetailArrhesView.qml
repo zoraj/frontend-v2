@@ -1,13 +1,8 @@
-import QtQuick 2.12
+import QtQuick 2.4
 
-BookingDetailRoomRepartitionViewForm {
-    Component.onCompleted: {
-        roomRepartitionListView.visible = true
-        roomRepartitionDetailedListView.visible = false
-    }
-
+BookingDetailArrhesViewForm {
     ListModel {
-        id: roomRepartitionModel
+        id: arrhesModel
         ListElement {
             name: "1"
         }
@@ -43,16 +38,7 @@ BookingDetailRoomRepartitionViewForm {
         }
     }
 
-    roomRepartitionListView {
-        model: roomRepartitionModel
-    }
-    roomRepartitionDetailedListView {
-        model: roomRepartitionModel
-    }
-
-    // Event UI
-    detailedSwitch.onCheckedChanged: {
-        roomRepartitionListView.visible = !detailedSwitch.checked
-        roomRepartitionDetailedListView.visible = detailedSwitch.checked
+    arrhesListView {
+        model: arrhesModel
     }
 }

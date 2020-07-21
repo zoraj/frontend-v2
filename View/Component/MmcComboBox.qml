@@ -12,9 +12,9 @@ ColumnLayout {
         text: title
         color: "#06a8c4"
     }
-    TextField {
-        id: textField
-        echoMode: isPassword ? TextInput.Password : TextInput.Normal
+    ComboBox {
+        editable: true
+        id: comboBox
         Layout.preferredWidth: textWidth
     }
 }
