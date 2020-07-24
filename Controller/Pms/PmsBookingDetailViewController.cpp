@@ -75,7 +75,6 @@ void PmsBookingDetailViewController::validateButtonClicked(PmsNoteEnteteModel *p
 {
     headerNote = pHeaderNote;
     headerNote->mmcClientId = clientId;
-    headerNote->posteUuid = "465454";
 
     persistData();
 }

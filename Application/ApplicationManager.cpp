@@ -65,7 +65,11 @@ void ApplicationManager::loadSetting()
     setting =  MmcParametrageCache::get("DATE_LOGICIELLE");
     applicationContext->dateSoftware = setting.valeur;
 
+    setting =  MmcParametrageCache::get("UUID");
+    applicationContext->deviceUuid = setting.valeur;
+
     qDebug() << "API-KEY " << applicationContext->apikey;
     qDebug() << "DATE_LOGICIELLE " << applicationContext->dateSoftware;
+    qDebug() << "UUID DEVICE " << applicationContext->deviceUuid;
 
 }

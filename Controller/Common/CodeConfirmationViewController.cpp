@@ -27,15 +27,13 @@ void CodeConfirmationViewController::validateCodeTriggered(const QString &code)
 void CodeConfirmationViewController::persistDeviceInfos(const DeviceModel &device)
 {
     QList<MmcParametrageModel> settings;
-    MmcParametrageModel setting = MmcParametrageModel("ID", QString::number(device.id));
+    MmcParametrageModel setting = MmcParametrageModel("UUID", device.uuid);
     settings.append(setting);
     setting = MmcParametrageModel("API-KEY", device.apiKey);
     settings.append(setting);
     setting = MmcParametrageModel("NAME", device.name);
     settings.append(setting);
-    setting = MmcParametrageModel("SITE-ID", QString::number(device.mmcSiteId));
-    settings.append(setting);
-    setting = MmcParametrageModel("REFERENCE", device.reference);
+    setting = MmcParametrageModel("SITE-ID", device.mmcSiteId);
     settings.append(setting);
     setting = MmcParametrageModel("LANGUAGE", device.language);
     settings.append(setting);

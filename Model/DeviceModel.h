@@ -9,10 +9,9 @@
 
 struct DeviceModel
 {
-    int id;
-    QString reference;
+    QString uuid;
     QString name;
-    int mmcSiteId;
+    QString mmcSiteId;
     QString currency;
     QString language;
     QString apiKey;
@@ -27,10 +26,9 @@ struct DeviceModel
         if (error.error == QJsonParseError::NoError) {
             QJsonObject jsonObject = jsonDoc.object();
 
-            id = jsonObject["id"].toInt();
-            reference = jsonObject["reference"].toString();
+            uuid = jsonObject["uuid"].toString();
             name = jsonObject["name"].toString();
-            mmcSiteId = jsonObject["name"].toInt();
+            mmcSiteId = jsonObject["siteCode"].toString();
             currency = jsonObject["currency"].toString();
             language = jsonObject["language"].toString();
             apiKey = jsonObject["apiKey"].toString();

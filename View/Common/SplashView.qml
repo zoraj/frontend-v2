@@ -5,14 +5,7 @@ SplashViewForm {
         target: _splashViewController
 
         onViewLoadedWithResult: {
-            /*
-            if (result === "NO_APIKEY") {
-                mainLoader.source = "qrc:/View/Common/SignupView.qml"
-            }
-            else {
-                mainLoader.source = "qrc:/View/Common/LoginView.qml"
-            }*/
-            mainStackView.replace("qrc:/View/Common/SignupView.qml")
+            mainStackView.replace(result ? "qrc:/View/Common/LoginView.qml" : "qrc:/View/Common/SignupView.qml")
         }
     }
 

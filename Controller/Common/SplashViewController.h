@@ -13,7 +13,7 @@ public:
     Q_INVOKABLE
     void viewLoaded();
 signals:
-    void viewLoadedWithResult(QString result);
+    void viewLoadedWithResult(bool result);
 
 public slots:
 };
