@@ -17,30 +17,6 @@ BookingDetailRoomRepartitionViewForm {
         ListElement {
             name: "1"
         }
-        ListElement {
-            name: "1"
-        }
-        ListElement {
-            name: "1"
-        }
-        ListElement {
-            name: "1"
-        }
-        ListElement {
-            name: "1"
-        }
-        ListElement {
-            name: "1"
-        }
-        ListElement {
-            name: "1"
-        }
-        ListElement {
-            name: "1"
-        }
-        ListElement {
-            name: "1"
-        }
     }
 
     roomRepartitionListView {
@@ -48,6 +24,17 @@ BookingDetailRoomRepartitionViewForm {
     }
     roomRepartitionDetailedListView {
         model: roomRepartitionModel
+    }
+
+    ListModel {
+        id: _model
+        ListElement { text: "TWIN" }
+        ListElement { text: "SINGLE" }
+        ListElement { text: "SALON" }
+    }
+
+    roomRepartitionDetailedListView {
+
     }
 
     // Event UI

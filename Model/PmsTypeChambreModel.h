@@ -8,6 +8,7 @@
 
 class PmsTypeChambreModel: public QObject
 {
+public:
     int id;
     QString libelle;
     QString reference;
@@ -17,7 +18,6 @@ class PmsTypeChambreModel: public QObject
     int persMax;
     int nbEnfant;
 
-public:
     PmsTypeChambreModel() {}
     PmsTypeChambreModel(const PmsTypeChambreModel&){}
 

@@ -5,6 +5,8 @@ import QtQuick.Layouts 1.12
 ColumnLayout {
     property string title
     property int textWidth: 200
+    property ListModel comboBoxModel
+    //property string textRole: textRole
 
     implicitHeight: 200
     implicitWidth: 200
@@ -16,5 +18,6 @@ ColumnLayout {
         editable: true
         id: comboBox
         Layout.preferredWidth: textWidth
+        model: comboBoxModel
     }
 }

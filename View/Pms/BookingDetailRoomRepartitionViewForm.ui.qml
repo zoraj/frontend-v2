@@ -9,15 +9,18 @@ Column {
     property alias detailedSwitch: detailedSwitch
     property alias roomRepartitionListView: roomRepartitionListView
     property alias roomRepartitionDetailedListView: roomRepartitionDetailedListView
+
     Switch {
         id:detailedSwitch
         text: qsTr("DETAILED")
     }
     ListView {
+
         id: roomRepartitionDetailedListView
         width: 500
         height: 500
         delegate: RowLayout {
+
             width: 200
             height: 100
             spacing: 10
@@ -25,12 +28,20 @@ Column {
                 text: name
                 font.pointSize: 21
             }
+
+            ComboBox {
+                id: comboBox
+                model: _model
+            }
+/*
             MmcComboBox {
+                id: roomTypeDetailComboBox
                 title: qsTr("ROOM_TYPE")
             }
             MmcComboBox {
+                id: roomNumberComboBox
                 title: qsTr("ROOM_NUMBER")
-            }
+            }*/
         }
     }
     ListView {
@@ -45,6 +56,7 @@ Column {
                 title: qsTr("NB_ROOM")
             }
             MmcComboBox {
+                id: roomTypeComboBox
                 title: qsTr("ROOM_TYPE")
             }
         }

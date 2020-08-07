@@ -5,6 +5,8 @@ import QtQuick.Layouts 1.12
 Item {
     anchors.fill: parent
     property alias cashSellingGridView: cashSellingGridView
+    property alias newSaleButton: newSaleButton
+
     GridView {
         id: cashSellingGridView
         topMargin: 30
@@ -20,7 +22,7 @@ Item {
     }
 
     RoundButton {
-        id: newBookingButton
+        id: newSaleButton
         text: "+"
         anchors.right: parent.right
         anchors.bottom: parent.bottom

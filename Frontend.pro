@@ -23,6 +23,7 @@ SOURCES += \
         Controller/Pms/CashSaleViewController.cpp \
         Controller/Pms/PmsBookingDetailViewController.cpp \
         ListModel/MmcClientListModel.cpp \
+        ListModel/PmsTypeChambreListModel.cpp \
         Service/BaseService.cpp \
         Service/ClientService.cpp \
         Service/DeviceService.cpp \
@@ -93,6 +94,7 @@ HEADERS += \
     Controller/Pms/CashSaleViewController.h \
     Controller/Pms/PmsBookingDetailViewController.h \
     ListModel/MmcClientListModel.h \
+    ListModel/PmsTypeChambreListModel.h \
     Model/DeviceModel.h \
     Model/EtablissementModel.h \
     Model/MmcClientModel.h \

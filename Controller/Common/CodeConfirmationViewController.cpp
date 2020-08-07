@@ -42,4 +42,5 @@ void CodeConfirmationViewController::persistDeviceInfos(const DeviceModel &devic
     MmcParametrageCache::persist(settings);
 
     ApplicationManager::getInstance()->getAppContext()->apikey = device.apiKey;
+    ApplicationManager::getInstance()->getAppContext()->deviceUuid = device.uuid;
 }

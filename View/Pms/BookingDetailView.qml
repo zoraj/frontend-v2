@@ -5,7 +5,7 @@ BookingDetailViewForm {
     Connections {
         target: _pmsBookingDetailViewController
 
-        onValidateButtonFinished: {
+        onSigValidateButtonFinished: {
             if (result) {
                 ventillationTab.visible = true
                 pricingTab.visible = true
@@ -16,20 +16,20 @@ BookingDetailViewForm {
                 console.log("Error submitting")
             }
         }
-        onSigRefreshUI: {
+        onSigReloadUI: {
             bookingDetailGeneralInformationView.clientAccountTextField.value = currentHeader.mmcClientName
         }
     }
 
-
     Component.onCompleted: {
-        ventillationTab.visible = false
+        ventillationTab.visible = true
         pricingTab.visible = false
         complementaryTab.visible = false
         arrhesTab.visible = false
         _pmsBookingDetailViewController.componentUILoaded();
 
-        bookingDetailGeneralInformationView
+        //bookingDetailGeneralInformationView
+        //BookingDetailRoomRepartitionView
     }
 
     PmsNoteEnteteModel {

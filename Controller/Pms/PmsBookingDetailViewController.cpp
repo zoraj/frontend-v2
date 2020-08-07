@@ -4,6 +4,7 @@
 PmsBookingDetailViewController::PmsBookingDetailViewController(QObject *parent) : QObject(parent)
 {
     //chambreListModel = new PmsChambreListModel(parent);
+    typeChambreListModel = new PmsTypeChambreListModel(parent);
 }
 
 // Private Methods
@@ -18,7 +19,7 @@ void PmsBookingDetailViewController::persistData()
             //chambreListModel->setRooms(rooms);
         }
         noteService->deleteLater();
-        emit validateButtonFinished(status == Constant::HttpStatusCode::OK);
+        emit sigValidateButtonFinished(status == Constant::HttpStatusCode::OK);
     });
 }
 
@@ -37,14 +38,15 @@ void PmsBookingDetailViewController::loadData()
         }
     });
 
-    // Load room list
+    // Load room types
     auto roomService = new RoomService();
     roomService->getRoomTypes();
     QObject::connect(roomService, &RoomService::getRoomTypesFinished, [=] (const QByteArray &response, const int status){
         if (status == Constant::HttpStatusCode::OK) {
             //emit signinSuccess(user.moduleAuthorized);
             roomsType = PmsTypeChambreModel::fromArray(response);
-            //chambreListModel->setRooms(rooms);
+            typeChambreListModel->setRoomTypes(roomsType);
+
             qDebug() << "Type room fetched and it contains " << roomsType.length();
         }
         else {
@@ -61,11 +63,11 @@ void PmsBookingDetailViewController::setClient(int index)
         clientId = clients.at(index).id;
         headerNote->mmcClientName = clients.at(index).nom;
 
-        emit sigRefreshUI(headerNote);
+        emit sigReloadUI(headerNote);
     }
 }
 
-void PmsBookingDetailViewController::componentUILoaded()
+void PmsBookingDetailViewController::componentCompleted()
 {
     headerNote = new PmsNoteEnteteModel();
     loadData();    
