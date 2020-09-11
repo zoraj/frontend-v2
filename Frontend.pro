@@ -32,7 +32,6 @@ SOURCES += \
         Service/RoomService.cpp \
         Service/UserService.cpp \
         Util/HttpUtil.cpp \
-        Util/Util.cpp \
         main.cpp
 
 RESOURCES += qml.qrc \

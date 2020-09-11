@@ -26,7 +26,7 @@ BookingDetailViewForm {
         pricingTab.visible = false
         complementaryTab.visible = false
         arrhesTab.visible = false
-        _pmsBookingDetailViewController.componentUILoaded();
+        _pmsBookingDetailViewController.componentCompleted();
 
         //bookingDetailGeneralInformationView
         //BookingDetailRoomRepartitionView

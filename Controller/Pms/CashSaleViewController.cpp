@@ -13,6 +13,7 @@ CashSaleViewController::~CashSaleViewController()
 void CashSaleViewController::loadData()
 {
 
+    /*
     PmsVenteComptantModel vente1;
     cashSales.append(vente1);
     PmsVenteComptantModel vente2;
@@ -23,4 +24,5 @@ void CashSaleViewController::loadData()
     cashSales.append(vente5);
     PmsVenteComptantModel vente4;
     cashSales.append(vente4);
+    */
 }

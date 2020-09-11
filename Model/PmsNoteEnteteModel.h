@@ -93,7 +93,7 @@ public:
             foreach (const  QJsonValue &value, jsonArray) {
                 QJsonObject jsonObject = value.toObject();
                 PmsNoteEnteteModel pmsNoteEntete(jsonObject);
-                pmsNoteEntetes.append(pmsNoteEntete);
+                //TODO pmsNoteEntetes.append(pmsNoteEntete);
             }
         }
         return pmsNoteEntetes;

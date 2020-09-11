@@ -76,6 +76,6 @@ void PmsTypeChambreListModel::setRoomTypes(const QList<PmsTypeChambreModel> &lis
 {
     listModel = list;
     foreach (const PmsTypeChambreModel &typeChambre, list) {
-        m_items.append(typeChambre);
+        //TODO m_items.append(typeChambre);
     }
 }

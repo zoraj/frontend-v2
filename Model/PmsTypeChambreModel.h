@@ -6,9 +6,8 @@
 #include <QJsonArray>
 #include <QDebug>
 
-class PmsTypeChambreModel: public QObject
+struct PmsTypeChambreModel
 {
-public:
     int id;
     QString libelle;
     QString reference;
@@ -19,7 +18,7 @@ public:
     int nbEnfant;
 
     PmsTypeChambreModel() {}
-    PmsTypeChambreModel(const PmsTypeChambreModel&){}
+    //PmsTypeChambreModel(const PmsTypeChambreModel&){}
 
     PmsTypeChambreModel(const QByteArray &json) {
         QJsonParseError error;

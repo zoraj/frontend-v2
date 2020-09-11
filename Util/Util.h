@@ -1,10 +1,9 @@
 #pragma once
 #include <QObject>
 
-class Util
-{
-public:
-    Util();
-    static QByteArray getPart(const QByteArray& message, int part, bool toEnd);
-};
-
+namespace Util {
+    static QByteArray getPart(const QByteArray& message, int part, bool toEnd) {
+        int characters(toEnd ? -1 : message.indexOf(' ', part) - part);
+        return message.mid(part, characters);
+    }
+}
