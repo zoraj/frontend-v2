@@ -4,6 +4,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Layouts 1.12
 import Qt.labs.settings 1.0
+import QtQuick.Controls.Styles 1.4
 import "qrc:/View/Common"
 import "qrc:/View/Component"
 
@@ -15,6 +16,17 @@ ApplicationWindow {
     title: qsTr("MMC - Frontend")
     property int module: 1 // POS = 0, PMS = 1
     property int moduleIndex: 0
+    color: "#eeeeee"
+
+    Rectangle
+    {
+        anchors.fill: parent
+        gradient: Gradient
+        {
+            GradientStop {position: 0.000;color: "#a1c4fd";}
+            GradientStop {position: 1.000;color: "#c2e9fb";}
+        }
+    }
 
     // Model for PMS menu
     ListModel {

@@ -3,6 +3,7 @@ import cloud.multimicro.mmc.frontend 1.0
 
 SignupViewForm {
 
+    /*
     Connections {
         target: _signupViewController
     }
@@ -67,5 +68,5 @@ SignupViewForm {
             if (find(editText) === -1)
                 model.append({text: editText})
         }
-    }
+    }*/
 }
