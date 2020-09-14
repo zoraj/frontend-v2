@@ -63,6 +63,8 @@ Flickable {
                 color: "white"
                 Row {
                     spacing: 60
+                    leftPadding: 100
+                    anchors.verticalCenter: parent.verticalCenter
                     Label {
                         text: "TEST"
                     }
@@ -82,6 +84,15 @@ Flickable {
                         text: "TEST"
                     }
                 }
+                MouseArea{
+                     id: itemMouseArea
+                     anchors.fill: parent
+                     // @disable-check M223
+                     onClicked: {
+                         // @disable-check M222
+                         resultItemClicked(index)
+                     }
+                 }
             }
             Rectangle {
                 width: resultListView.width

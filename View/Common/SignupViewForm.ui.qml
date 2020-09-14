@@ -7,6 +7,7 @@ import "qrc:/View/Component"
 
 Flickable {
     contentHeight: mainRectangle.height
+    width: mainWindow.width / 3
     flickableDirection: Flickable.AutoFlickIfNeeded
     property alias validateButton: validateButton
     property alias activateDeviceButton: activateDeviceButton
@@ -28,7 +29,7 @@ Flickable {
         height: mainWindow.height - 200
         x: mainWindow.width - width - 100
         y: 100
-        clip: true
+        //clip: true
         // Title
         Label {
             id: label1
@@ -49,7 +50,7 @@ Flickable {
             MmcTextField {
                 id: nameTextField
                 anchors.horizontalCenter: parent.horizontalCenter
-                title: qsTr("ESTABLISHMENT_NAME")
+                title: "Nom de l'etablissement"
                 textWidth: mainRectangle.width - 100
             }
             ComboBox {
@@ -67,7 +68,7 @@ Flickable {
             MmcTextField {
                 id: addressTextField
                 anchors.horizontalCenter: parent.horizontalCenter
-                title: qsTr("ESTABLISHMENT_ADDRESS")
+                title: "Adresse"
                 textWidth: mainRectangle.width - 100
             }
             Row {
@@ -75,12 +76,12 @@ Flickable {
                 anchors.horizontalCenter: parent.horizontalCenter
                 MmcTextField {
                     id: ownerFirstnameTextField
-                    title: qsTr("OWNER FIRSTNAME")
+                    title: "Prénom"
                     textWidth: mainRectangle.width / 2 - 50
                 }
                 MmcTextField {
                     id: ownerLastnameTextField
-                    title: qsTr("OWNER LASTNAME")
+                    title: "Nom"
                     textWidth: mainRectangle.width / 2 - 50
                 }
             }
@@ -89,12 +90,12 @@ Flickable {
                 anchors.horizontalCenter: parent.horizontalCenter
                 MmcTextField {
                     id: email1TextField
-                    title: qsTr("EMAIL")
+                    title: "Email"
                     textWidth: mainRectangle.width / 2 - 50
                 }
                 MmcTextField {
                     id: phoneTextField
-                    title: qsTr("PHONE NUMBER")
+                    title: "Téléphone"
                     textWidth: mainRectangle.width / 2 - 50
                 }
             }

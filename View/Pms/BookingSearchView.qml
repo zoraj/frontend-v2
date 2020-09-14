@@ -2,6 +2,10 @@ import QtQuick 2.12
 
 BookingSearchViewForm {
     resultListView {
-        model: 2
+        model: 100
+    }
+
+    function resultItemClicked(selectedItem) {
+        mainStackView.push(null, "qrc:/View/Pms/BookingDetailView.qml")
     }
 }
