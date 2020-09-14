@@ -2,6 +2,13 @@ import QtQuick 2.12
 import cloud.multimicro.mmc.frontend 1.0
 
 BookingDetailViewForm {
+
+
+    ventillationAndRatingListView {
+        model: 100
+    }
+
+    /*
     Connections {
         target: _pmsBookingDetailViewController
 
@@ -46,4 +53,5 @@ BookingDetailViewForm {
         headerNote.nbEnfant = bookingDetailGeneralInformationView.nbChildSpinBox.value
         _pmsBookingDetailViewController.validateButtonClicked(headerNote)
     }
+    */
 }

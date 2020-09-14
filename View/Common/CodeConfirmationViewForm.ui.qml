@@ -1,12 +1,13 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import QtGraphicalEffects 1.12
 import "qrc:/View/Component"
 
 Flickable {
-    contentHeight: mainColumn.height
+    contentHeight: mainRectangle.height
     flickableDirection: Flickable.AutoFlickIfNeeded
-
+    // Main Rectangle
     property alias t0: t0
     property alias t1: t1
     property alias t2: t2
@@ -15,32 +16,33 @@ Flickable {
     property alias t5: t5
     property alias resultText: resultText
 
-    Column {
-        id: mainColumn
-        spacing: 20
-        anchors.centerIn: parent
-        topPadding: mainWindow.height / 4
-
-        Image {
-            source: "qrc:/Asset/Images/verouillage_caisse@4x.png"
+    RectangularGlow {
+        anchors.fill: mainRectangle
+        glowRadius: 15
+        spread: 0.1
+        color: "lightsteelblue"
+        cornerRadius: mainRectangle.radius + glowRadius
+    }
+    Rectangle {
+        id: mainRectangle
+        color: "white"
+        width: mainWindow.width
+        height: 300
+        clip: true
+        radius: 2
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: mainWindow.height / 2 - mainRectangle.height / 2
+        Label {
             anchors.horizontalCenter: parent.horizontalCenter
-            width: 96
-            height: 96
-        }
-        Text {
-            id: name
-            text: qsTr("ACTIVATION_CODE")
+            text: "Saisissez le code reçu par email"
             font.pointSize: 24
-            anchors.horizontalCenter: parent.horizontalCenter
+            y: 10
         }
-        Text {
-            text: qsTr("En vous connectant sur le backend en utilisant les informations envoyées par email\nvous pourrez declarer les postes.\nVeuiller saisir le code d'activation du poste reçu par email.")
-            font.pointSize: 14
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
+
         Row {
             spacing: 20
-            anchors.horizontalCenter: parent.horizontalCenter
+            //anchors.horizontalCenter: parent.horizontalCenter
+            anchors.centerIn: parent
             TextField {
                 id: t0
                 width: 80
@@ -116,6 +118,7 @@ Flickable {
                 font.pointSize: 40
                 color: "#06a8c4"
             }
+
         }
     }
 }

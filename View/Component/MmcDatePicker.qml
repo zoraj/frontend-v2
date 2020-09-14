@@ -6,8 +6,7 @@ import "qrc:/View/Component"
 ColumnLayout {
     property string title
     property bool isMandatory: false
-    property bool isPassword: false
-    property int textWidth: 200
+    property int textWidth: 120
     property string text: textField.text
     property string value: textField.value
 
@@ -18,20 +17,34 @@ ColumnLayout {
         text: title
         color: "#06a8c4"
     }
-    Row {
-        spacing: 10
+    RowLayout {
         TextField {
             property string value
-
             id: textField
-            echoMode: isPassword ? TextInput.Password : TextInput.Normal
             Layout.preferredWidth: textWidth
+            placeholderText: "jj/MM/AAAA"
+            horizontalAlignment: Text.AlignHCenter
+
         }
         Button {
-            text: "..."
             onClicked: {
                 datepickerDialog.caller = textField
                 datepickerDialog.open()
+            }
+            contentItem: Text {
+                font.pointSize: 12
+                text: "..."
+                opacity: 1.0
+                //color: "#06a8c4"
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                elide: Text.ElideRight
+            }
+
+            background: Rectangle {
+                implicitWidth: 10
+                implicitHeight: 10
+                border.width: 0
             }
         }
     }

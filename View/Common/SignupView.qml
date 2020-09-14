@@ -3,6 +3,14 @@ import cloud.multimicro.mmc.frontend 1.0
 
 SignupViewForm {
 
+    validateButton.onClicked: {
+        mainStackView.push("/View/Common/CodeConfirmationView.qml")
+    }
+
+    activateDeviceButton.onClicked: {
+        mainStackView.push("/View/Common/CodeConfirmationView.qml")
+    }
+
     /*
     Connections {
         target: _signupViewController

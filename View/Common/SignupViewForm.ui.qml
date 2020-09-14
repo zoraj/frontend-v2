@@ -8,6 +8,8 @@ import "qrc:/View/Component"
 Flickable {
     contentHeight: mainRectangle.height
     flickableDirection: Flickable.AutoFlickIfNeeded
+    property alias validateButton: validateButton
+    property alias activateDeviceButton: activateDeviceButton
 
     RectangularGlow {
         anchors.fill: mainRectangle
@@ -68,90 +70,50 @@ Flickable {
                 title: qsTr("ESTABLISHMENT_ADDRESS")
                 textWidth: mainRectangle.width - 100
             }
-            MmcTextField {
-                id: ownerFirstnameTextField
+            Row {
+                spacing: 5
                 anchors.horizontalCenter: parent.horizontalCenter
-                title: qsTr("OWNER FIRSTNAME")
-                textWidth: mainRectangle.width - 100
+                MmcTextField {
+                    id: ownerFirstnameTextField
+                    title: qsTr("OWNER FIRSTNAME")
+                    textWidth: mainRectangle.width / 2 - 50
+                }
+                MmcTextField {
+                    id: ownerLastnameTextField
+                    title: qsTr("OWNER LASTNAME")
+                    textWidth: mainRectangle.width / 2 - 50
+                }
             }
-            MmcTextField {
-                id: ownerLastnameTextField
+            Row {
+                spacing: 5
                 anchors.horizontalCenter: parent.horizontalCenter
-                title: qsTr("OWNER LASTNAME")
-                textWidth: mainRectangle.width - 100
+                MmcTextField {
+                    id: email1TextField
+                    title: qsTr("EMAIL")
+                    textWidth: mainRectangle.width / 2 - 50
+                }
+                MmcTextField {
+                    id: phoneTextField
+                    title: qsTr("PHONE NUMBER")
+                    textWidth: mainRectangle.width / 2 - 50
+                }
             }
-            MmcTextField {
-                id: email1TextField
-                anchors.horizontalCenter: parent.horizontalCenter
-                title: qsTr("EMAIL")
-                textWidth: mainRectangle.width - 100
-            }
-            MmcTextField {
-                id: email2TextField
-                anchors.horizontalCenter: parent.horizontalCenter
-                title: qsTr("RETYPE_EMAIL")
-                textWidth: mainRectangle.width - 100
-            }
-            MmcTextField {
-                id: phoneTextField
-                anchors.horizontalCenter: parent.horizontalCenter
-                title: qsTr("PHONE NUMBER")
-                textWidth: mainRectangle.width - 100
-            }
-        }
-    }
-}
-
-/*
-Flickable {
-    property alias activateDeviceButton: activateDeviceButton
-    property alias validateButton: validateButton
-    property alias nameTextField: nameTextField
-    property alias addressTextField: addressTextField
-    property alias ownerFirstnameTextField: ownerFirstnameTextField
-    property alias ownerLastnameTextField: ownerLastnameTextField
-    property alias email1TextField: email1TextField
-    property alias email2TextField: email2TextField
-    property alias phoneTextField: phoneTextField
-    property alias typeComboBox: typeComboBox
-    property alias countryComboBox: countryComboBox
-    property alias busyIndicator: busyIndicator
-
-    contentHeight: mainColumn.height
-    flickableDirection: Flickable.AutoFlickIfNeeded
-
-    Column {
-        id: mainColumn
-        spacing: 10
-        width: parent.width
-        topPadding: 30
-        anchors.centerIn: parent
-
-
-
-
-
-        RowLayout {
-            anchors.horizontalCenter: parent.horizontalCenter
             Button {
                 id: validateButton
-                text: qsTr("SIGNUP")
-            }
-            BusyIndicator {
-                id: busyIndicator
-                opacity: 0
+                text: "S'enregistrer"
+                width: mainRectangle.width / 2
+                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             Button {
                 id: activateDeviceButton
-                text: qsTr("YOU HAVE ALREADY AN ACCOUNT. ACTIVATE IT")
-
+                anchors.horizontalCenter: parent.horizontalCenter
                 contentItem: Text {
                     font.pointSize: 12
                     font.underline: true
                     opacity: enabled ? 1.0 : 0.3
                     //color: "#06a8c4"
-                    text: "YOU HAVE ALREADY AN ACCOUNT. ACTIVATE IT"
+                    text: "Vous avez déjà un compte. Activer ce poste."
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     elide: Text.ElideRight
@@ -168,4 +130,3 @@ Flickable {
         }
     }
 }
-*/

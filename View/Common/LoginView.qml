@@ -2,6 +2,14 @@ import QtQuick 2.12
 
 LoginViewForm {
 
+    signinButton.onClicked: {
+        prettyRectangle.visible = false
+        // PMS
+
+        mainStackView.replace(null, "qrc:/View/Pms/PlanningChoiceView.qml")
+    }
+
+    /*
     Connections {
         target: _loginViewController
         onSigninFinishedWithResult: { // result
@@ -16,4 +24,5 @@ LoginViewForm {
             _loginViewController.loginButtonClicked(loginTextField.text, passwordTextField.text)
         }
     }
+    */
 }

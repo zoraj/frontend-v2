@@ -20,6 +20,7 @@ ApplicationWindow {
 
     Rectangle
     {
+        id: prettyRectangle
         anchors.fill: parent
         gradient: Gradient
         {
