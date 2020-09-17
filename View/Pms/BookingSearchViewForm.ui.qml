@@ -6,8 +6,8 @@ import "qrc:/View/Component"
 
 Flickable {
     property alias resultListView: resultListView
-
     flickableDirection: Flickable.AutoFlickIfNeeded
+
     RectangularGlow {
         anchors.fill: topRectangle
         glowRadius: 15

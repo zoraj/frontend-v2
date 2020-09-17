@@ -48,6 +48,10 @@ CodeConfirmationViewForm {
             nextFocusOrValidate()
     }
 
+    Component.onCompleted: {
+        t0.focus = true
+    }
+
     /*
     Connections {
         target: _codeConfirmationViewController

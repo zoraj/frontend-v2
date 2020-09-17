@@ -14,10 +14,12 @@ ApplicationWindow {
     width: 800
     height: 600
     title: qsTr("MMC - Frontend")
-    property int module: 1 // POS = 0, PMS = 1
+    property int module: 1 // POS = 0, PMS-RECEP  = 1, PMS-RESA = 2, PMS-HOUSEKEEPING = 3
+
     property int moduleIndex: 0
     color: "#eeeeee"
 
+    // Rectangle background during signin and signup
     Rectangle
     {
         id: prettyRectangle
@@ -29,30 +31,50 @@ ApplicationWindow {
         }
     }
 
-    // Model for PMS menu
+    // Model for PMS-RECEP menu
     ListModel {
-        id: pmsTabBarModel
-        ListElement { title: "PLANNING"; type: "separator"; source: "qrc:/View/Pms/PlanningChoiceView.qml" }
-        ListElement { title: qsTr("SEARCH"); source: "qrc:/View/Pms/BookingSearchView.qml" }
-        ListElement { title: qsTr("PENDING_NOTE"); source: "qrc:/View/Pms/NotificationView.qml" }
+        id: pmsRecepTabBarModel
+        ListElement { title: "PLANNING"; type: "separator"; source: "qrc:/View/Pms/Recep/PlanningView.qml" }
+        ListElement { title: "RECHERCHER"; source: "qrc:/View/Pms/BookingSearchView.qml" }
+        ListElement { title: "NOTE EN ATTENTE"; source: "qrc:/View/Pms/PendingNoteView.qml" }
         ListElement { title: "NOTIFICATION"; source: "qrc:/View/Pms/NotificationView.qml" }
     }
     ListModel {
-        id: pmsDrawerModel
-        ListElement { title: "VENTE AU COMPTANT"; source: "qrc:/View/Pms/CashSaleView.qml" }
-        ListElement { title: "PREAFFECTATION"; source: "qrc:/View/Pms/PreaffectationView.qml" }
+        id: pmsRecepDrawerModel
+        ListElement { title: "VENTE COMPTANT"; source: "qrc:/View/Pms/CashSaleView.qml" }
         ListElement { title: "TRANSFERT NOTE"; source: "qrc:/View/Pms/DeferralNoteView.qml" }
         ListElement { title: "---"; source: "" }
-        ListElement { title: "DISCONNECT"; source: "qrc:/View/Common/LoginView.qml" }
+        ListElement { title: "DECONNECTER"; source: "qrc:/View/Common/LoginView.qml" }
+    }
+    // Model for PMS-RESA menu
+    ListModel {
+        id: pmsResaTabBarModel
+        ListElement { title: "PLANNING"; type: "separator"; source: "qrc:/View/Pms/PlanningChoiceView.qml" }
+        ListElement { title: "RECHERCHER"; source: "qrc:/View/Pms/BookingSearchView.qml" }
+        ListElement { title: "PREAFFECTATION"; source: "qrc:/View/Pms/PendingNoteView.qml" }
+        ListElement { title: "NOTIFICATION"; source: "qrc:/View/Pms/NotificationView.qml" }
+    }
+    ListModel {
+        id: pmsResaDrawerModel
+        ListElement { title: "---"; source: "" }
+        ListElement { title: "DECONNECTER"; source: "qrc:/View/Common/LoginView.qml" }
+    }
+    // Model for PMS-HOUSEKEEPING menu
+    ListModel {
+        id: pmsHousekeepingTabBarModel
+        ListElement { title: "CALENDRIER"; type: "separator"; source: "qrc:/View/Pms/PlanningChoiceView.qml" }
+        ListElement { title: "ETAT DES CHAMBRES"; source: "qrc:/View/Pms/BookingSearchView.qml" }
+        ListElement { title: "COMPTE RENDU"; source: "qrc:/View/Pms/NotificationView.qml" }
     }
 
     // Model for POS menu
     ListModel {
-        id: posModel
+        id: posDrawerModel
         ListElement { title: "Plan de table"; source: "qrc:/View/Pos/" }
         ListElement { title: "Notes ouvertes"; source: "qrc:/View/Pos/" }
         ListElement { title: "Notification"; source: "qrc:/View/Pos/" }
     }
+
 
     // UI Logic
     // ***************************************** ACTION *******************************************************
@@ -103,20 +125,31 @@ ApplicationWindow {
                     id: optionsMenu
                     x: parent.width - width
                     transformOrigin: Menu.TopRight
+                    Action {
+                        text: "Récéption"
+                        onTriggered: {
+                            module = 1
+                        }
+                    }
 
                     Action {
-                        text: "Settings"
-                        //onTriggered: settingsDialog.open()
+                        text: "Réservation"
+                        onTriggered: {
+                            module = 2
+                        }
                     }
                     Action {
-                        text: "About"
-                        //onTriggered: aboutDialog.open()
+                        text: "Gouvernante"
+                        onTriggered: {
+                            module = 3
+                        }
                     }
                 }
             }
         }
     }
 
+    // Drawer, seulement pour le module PMS (Recep, Resa, )
     Drawer {
         id: drawer
         //width: Math.min(mainWindow.width, mainWindow.height) / 3
@@ -129,7 +162,14 @@ ApplicationWindow {
             focus: true
             currentIndex: -1
             anchors.fill: parent
-            model: module === 1 ? pmsDrawerModel : posModel
+            model: {
+                if (module === 0)
+                    return posDrawerModel
+                else if (module === 1)
+                    return pmsRecepDrawerModel
+                else if (module === 2)
+                    return pmsResaDrawerModel
+            }
 
             delegate: ItemDelegate {
                 width: parent.width
@@ -165,7 +205,17 @@ ApplicationWindow {
         id: tabBar
         width: parent.width
         Repeater {
-            model: module === 1 ? pmsTabBarModel : posModel
+            model: {
+                if (module === 1) {
+                    return pmsRecepTabBarModel
+                }
+                else if(module === 2) {
+                    return pmsResaTabBarModel
+                }
+                else if(module === 3) {
+                    return pmsHousekeepingTabBarModel
+                }
+            }
             TabButton {
                 text: title
                 onClicked: {

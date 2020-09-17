@@ -7,8 +7,6 @@
         <file>View/Component/MmcSpinBox.qml</file>
         <file>View/Pms/ClientAccountList.qml</file>
         <file>View/Pms/ClientAccountListForm.ui.qml</file>
-        <file>View/Pms/BookingDetailView.qml</file>
-        <file>View/Pms/BookingDetailViewForm.ui.qml</file>
         <file>View/Pms/CashSaleView.qml</file>
         <file>View/Pms/CashSaleViewForm.ui.qml</file>
         <file>View/Common/LoginView.qml</file>
@@ -31,10 +29,6 @@
         <file>Asset/Images/nouvelle_note@3x.png</file>
         <file>Asset/Images/nouvelle_note@4x.png</file>
         <file>View/Component/MmcComboBox.qml</file>
-        <file>View/Pms/PlanningChoiceView.qml</file>
-        <file>View/Pms/PlanningChoiceViewForm.ui.qml</file>
-        <file>View/Pms/PlanningView.qml</file>
-        <file>View/Pms/PlanningViewForm.ui.qml</file>
         <file>View/Component/MmcDatePicker.qml</file>
         <file>View/Component/MmcDatePickerDialog.qml</file>
         <file>View/Pms/BookingDetailComplementaryInformationView.qml</file>
@@ -47,5 +41,16 @@
         <file>View/Pms/NotificationViewForm.ui.qml</file>
         <file>View/Pms/BookingDetailArrhesView.qml</file>
         <file>View/Pms/BookingDetailArrhesViewForm.ui.qml</file>
+        <file>View/Pms/PendingNoteView.qml</file>
+        <file>View/Pms/PendingNoteViewForm.ui.qml</file>
+        <file>View/Pms/Resa/PlanningChoiceView.qml</file>
+        <file>View/Pms/Resa/PlanningChoiceViewForm.ui.qml</file>
+        <file>View/Pms/Recep/PlanningView.qml</file>
+        <file>View/Pms/Recep/PlanningViewForm.ui.qml</file>
+        <file>View/Component/MmcPlanningItem.qml</file>
+        <file>View/Pms/Recep/NoteDetailView.qml</file>
+        <file>View/Pms/Recep/NoteDetailViewForm.ui.qml</file>
+        <file>View/Pms/Resa/BookingDetailView.qml</file>
+        <file>View/Pms/Resa/BookingDetailViewForm.ui.qml</file>
     </qresource>
 </RCC>

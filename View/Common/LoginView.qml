@@ -6,7 +6,11 @@ LoginViewForm {
         prettyRectangle.visible = false
         // PMS
 
-        mainStackView.replace(null, "qrc:/View/Pms/PlanningChoiceView.qml")
+        mainStackView.replace(null, "qrc:/View/Pms/Recep/PlanningView.qml")
+    }
+
+    Component.onCompleted: {
+        loginTextField.focus = true
     }
 
     /*

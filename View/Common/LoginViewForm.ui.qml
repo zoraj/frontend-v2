@@ -8,6 +8,7 @@ Flickable {
     contentHeight: mainRectangle.height
     flickableDirection: Flickable.AutoFlickIfNeeded
     property alias signinButton: signinButton
+    property alias loginTextField: loginTextField
 
     RectangularGlow {
         anchors.fill: mainRectangle
