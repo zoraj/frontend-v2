@@ -1,14 +1,10 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>View/Pms/PreaffectationView.qml</file>
-        <file>View/Pms/DeferralNoteView.qml</file>
         <file>View/Component/MmcTextField.qml</file>
         <file>View/Component/MmcSpinBox.qml</file>
         <file>View/Pms/ClientAccountList.qml</file>
         <file>View/Pms/ClientAccountListForm.ui.qml</file>
-        <file>View/Pms/CashSaleView.qml</file>
-        <file>View/Pms/CashSaleViewForm.ui.qml</file>
         <file>View/Common/LoginView.qml</file>
         <file>View/Common/LoginViewForm.ui.qml</file>
         <file>View/Common/CodeConfirmationView.qml</file>
@@ -33,18 +29,8 @@
         <file>View/Component/MmcDatePickerDialog.qml</file>
         <file>View/Pms/BookingDetailComplementaryInformationView.qml</file>
         <file>View/Pms/BookingDetailComplementaryInformationViewForm.ui.qml</file>
-        <file>View/Pms/BookingSearchView.qml</file>
-        <file>View/Pms/BookingSearchViewForm.ui.qml</file>
-        <file>View/Pms/CashSaleViewDetail.qml</file>
-        <file>View/Pms/CashSaleViewDetailForm.ui.qml</file>
-        <file>View/Pms/NotificationView.qml</file>
-        <file>View/Pms/NotificationViewForm.ui.qml</file>
         <file>View/Pms/BookingDetailArrhesView.qml</file>
         <file>View/Pms/BookingDetailArrhesViewForm.ui.qml</file>
-        <file>View/Pms/PendingNoteView.qml</file>
-        <file>View/Pms/PendingNoteViewForm.ui.qml</file>
-        <file>View/Pms/Resa/PlanningChoiceView.qml</file>
-        <file>View/Pms/Resa/PlanningChoiceViewForm.ui.qml</file>
         <file>View/Pms/Recep/PlanningView.qml</file>
         <file>View/Pms/Recep/PlanningViewForm.ui.qml</file>
         <file>View/Component/MmcPlanningItem.qml</file>
@@ -52,5 +38,29 @@
         <file>View/Pms/Recep/NoteDetailViewForm.ui.qml</file>
         <file>View/Pms/Resa/BookingDetailView.qml</file>
         <file>View/Pms/Resa/BookingDetailViewForm.ui.qml</file>
+        <file>View/Pms/Recep/CashSaleView.qml</file>
+        <file>View/Pms/Recep/CashSaleViewDetail.qml</file>
+        <file>View/Pms/Recep/CashSaleViewDetailForm.ui.qml</file>
+        <file>View/Pms/Recep/CashSaleViewForm.ui.qml</file>
+        <file>View/Pms/Recep/DeferralNoteView.qml</file>
+        <file>View/Pms/Recep/DeferralNoteViewForm.ui.qml</file>
+        <file>View/Pms/Resa/PlanningView.qml</file>
+        <file>View/Pms/Resa/PlanningViewForm.ui.qml</file>
+        <file>View/Pms/Resa/SearchView.qml</file>
+        <file>View/Pms/Resa/SearchViewForm.ui.qml</file>
+        <file>View/Pms/Recep/SearchView.qml</file>
+        <file>View/Pms/Recep/SearchViewForm.ui.qml</file>
+        <file>View/Pms/Resa/PreaffectationView.qml</file>
+        <file>View/Pms/Resa/PreaffectationViewForm.ui.qml</file>
+        <file>View/Common/NotificationView.qml</file>
+        <file>View/Common/NotificationViewForm.ui.qml</file>
+        <file>View/Pms/HK/RoomStatusView.qml</file>
+        <file>View/Pms/HK/RoomStatusViewForm.ui.qml</file>
+        <file>View/Pms/HK/RoomReportView.qml</file>
+        <file>View/Pms/HK/RoomReportViewForm.ui.qml</file>
+        <file>View/Pms/HK/CalendarView.qml</file>
+        <file>View/Pms/HK/CalendarViewForm.ui.qml</file>
+        <file>View/Pms/Recep/PendingNoteView.qml</file>
+        <file>View/Pms/Recep/PendingNoteViewForm.ui.qml</file>
     </qresource>
 </RCC>

@@ -29,7 +29,7 @@ Flickable {
             anchors.horizontalCenter: parent.horizontalCenter
             y: 20
             MmcTextField {
-                title: "Référence"
+                title: "N° Réservation"
             }
             MmcTextField {
                 title: "Nom"
@@ -39,6 +39,12 @@ Flickable {
             }
             MmcDatePicker {
                 title: "Date de départ"
+            }
+            MmcComboBox {
+                title: "Numéro de chambre"
+            }
+            MmcComboBox {
+                title: "Compte client"
             }
             Button {
                 id:searchButton

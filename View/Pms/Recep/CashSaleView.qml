@@ -24,4 +24,8 @@ CashSaleViewForm {
     cashSellingGridView {
         model: cashSellingModel
     }
+
+    newSaleButton.onClicked: {
+        mainStackView.replace(null, "qrc:/View/Pms/Recep/CashSaleViewDetail.qml")
+    }
 }

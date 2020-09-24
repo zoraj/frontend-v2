@@ -35,24 +35,24 @@ ApplicationWindow {
     ListModel {
         id: pmsRecepTabBarModel
         ListElement { title: "PLANNING"; type: "separator"; source: "qrc:/View/Pms/Recep/PlanningView.qml" }
-        ListElement { title: "RECHERCHER"; source: "qrc:/View/Pms/BookingSearchView.qml" }
-        ListElement { title: "NOTE EN ATTENTE"; source: "qrc:/View/Pms/PendingNoteView.qml" }
-        ListElement { title: "NOTIFICATION"; source: "qrc:/View/Pms/NotificationView.qml" }
+        ListElement { title: "RECHERCHER"; source: "qrc:/View/Pms/Recep/SearchView.qml" }
+        ListElement { title: "NOTE EN ATTENTE"; source: "qrc:/View/Pms/Recep/PendingNoteView.qml" }
+        ListElement { title: "NOTIFICATION"; source: "qrc:/View/Common/NotificationView.qml" }
     }
     ListModel {
         id: pmsRecepDrawerModel
-        ListElement { title: "VENTE COMPTANT"; source: "qrc:/View/Pms/CashSaleView.qml" }
-        ListElement { title: "TRANSFERT NOTE"; source: "qrc:/View/Pms/DeferralNoteView.qml" }
+        ListElement { title: "VENTE COMPTANT"; source: "qrc:/View/Pms/Recep/CashSaleView.qml" }
+        ListElement { title: "TRANSFERT NOTE"; source: "qrc:/View/Pms/Recep/DeferralNoteView.qml" }
         ListElement { title: "---"; source: "" }
         ListElement { title: "DECONNECTER"; source: "qrc:/View/Common/LoginView.qml" }
     }
     // Model for PMS-RESA menu
     ListModel {
         id: pmsResaTabBarModel
-        ListElement { title: "PLANNING"; type: "separator"; source: "qrc:/View/Pms/PlanningChoiceView.qml" }
-        ListElement { title: "RECHERCHER"; source: "qrc:/View/Pms/BookingSearchView.qml" }
-        ListElement { title: "PREAFFECTATION"; source: "qrc:/View/Pms/PendingNoteView.qml" }
-        ListElement { title: "NOTIFICATION"; source: "qrc:/View/Pms/NotificationView.qml" }
+        ListElement { title: "PLANNING"; type: "separator"; source: "qrc:/View/Pms/Resa/PlanningView.qml" }
+        ListElement { title: "RECHERCHER"; source: "qrc:/View/Pms/Resa/SearchView.qml" }
+        ListElement { title: "PREAFFECTATION"; source: "qrc:/View/Pms/Resa/PreaffectationView.qml" }
+        ListElement { title: "NOTIFICATION"; source: "qrc:/View/Common/NotificationView.qml" }
     }
     ListModel {
         id: pmsResaDrawerModel
@@ -62,9 +62,9 @@ ApplicationWindow {
     // Model for PMS-HOUSEKEEPING menu
     ListModel {
         id: pmsHousekeepingTabBarModel
-        ListElement { title: "CALENDRIER"; type: "separator"; source: "qrc:/View/Pms/PlanningChoiceView.qml" }
-        ListElement { title: "ETAT DES CHAMBRES"; source: "qrc:/View/Pms/BookingSearchView.qml" }
-        ListElement { title: "COMPTE RENDU"; source: "qrc:/View/Pms/NotificationView.qml" }
+        ListElement { title: "CALENDRIER"; type: "separator"; source: "qrc:/View/Pms/HK/CalendarView.qml" }
+        ListElement { title: "ETAT DES CHAMBRES"; source: "qrc:/View/Pms/HK/RoomStatusView.qml" }
+        ListElement { title: "INSPECTION"; source: "qrc:/View/Pms/HK/RoomReportView.qml" }
     }
 
     // Model for POS menu
@@ -129,6 +129,7 @@ ApplicationWindow {
                         text: "Récéption"
                         onTriggered: {
                             module = 1
+                            mainStackView.replace("qrc:/View/Pms/Recep/PlanningView.qml")
                         }
                     }
 
@@ -136,12 +137,14 @@ ApplicationWindow {
                         text: "Réservation"
                         onTriggered: {
                             module = 2
+                            mainStackView.replace("qrc:/View/Pms/Resa/PlanningView.qml")
                         }
                     }
                     Action {
                         text: "Gouvernante"
                         onTriggered: {
                             module = 3
+                            mainStackView.replace("qrc:/View/Pms/HK/CalendarView.qml")
                         }
                     }
                 }

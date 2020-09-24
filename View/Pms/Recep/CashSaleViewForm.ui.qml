@@ -18,8 +18,28 @@ Item {
             color: "#94c7cf"
             width: cashSellingGridView.cellWidth - 10
             height: cashSellingGridView.cellHeight - 10
+
+            Column {
+                spacing: 10
+                topPadding: 10
+                leftPadding: 10
+                Label {
+                    text: "Nom ..."
+                    color: "white"
+                }
+                Label {
+                    text: "Montant"
+                    color: "white"
+                }
+                Label {
+                    text: "2060€"
+                    color: "white"
+                }
+            }
         }
+        model: 100
     }
+
 
     RoundButton {
         id: newSaleButton
