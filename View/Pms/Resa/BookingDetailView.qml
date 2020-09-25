@@ -1,11 +1,32 @@
 import QtQuick 2.12
 import cloud.multimicro.mmc.frontend 1.0
+import "qrc:/View/Pms/Resa"
+import "qrc:/View/Component"
 
 BookingDetailViewForm {
 
 
     ventillationAndRatingListView {
         model: 100
+    }
+
+    stkAutreButton {
+        onClicked: {
+            stockAutreDialog.open()
+        }
+    }
+    paymentButton {
+        onClicked: {
+            paymentDialog.open()
+        }
+    }
+
+    StockAutreDialog {
+        id: stockAutreDialog
+    }
+
+    MmcPaymentDialog {
+        id: paymentDialog
     }
 
     /*

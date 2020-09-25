@@ -10,7 +10,7 @@ PlanningViewForm {
     }
 
     newNoteButton.onClicked: {
-        onClicked: mainStackView.push(null, "qrc:/View/Pms/Recep/NoteDetailView.qml")
+        onClicked: mainStackView.push(null, "qrc:/View/Pms/Resa/BookingDetailView.qml")
     }
 
     function getDate(index) {

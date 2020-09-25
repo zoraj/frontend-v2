@@ -122,9 +122,6 @@ Flickable {
                 Button {
                     text: "Information de paiement"
                 }
-                Button {
-                    text: "Stock Autres"
-                }
             }
         }
     }

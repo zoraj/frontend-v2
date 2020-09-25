@@ -7,6 +7,8 @@ import "qrc:/View/Component"
 Flickable {
     flickableDirection: Flickable.AutoFlickIfNeeded
     property alias ventillationAndRatingListView: ventillationAndRatingListView
+    property alias stkAutreButton: stkAutreButton
+    property alias paymentButton: paymentButton
 
     RectangularGlow {
         anchors.fill: topRectangle
@@ -41,16 +43,25 @@ Flickable {
                 spacing: 20
                 MmcDatePicker {
                     id: arrivalDatePicker
-                    title: "Du"
+                    title: "Arrivée le"
                 }
-                MmcDatePicker {
-                    id: departureDatePicker
-                    title: "Au"
+                MmcTextField {
+                    id: arrivalHourTextField
+                    title: "à"
+                    textWidth: 50
                 }
                 MmcSpinBox {
                     id: nbNightSpinBox
                     title: "Nombre de nuité"
                     startValue: 1
+                }
+                MmcDatePicker {
+                    id: optionDatePicker
+                    title: "Option"
+                }
+                MmcDatePicker {
+                    id: departureDatePicker
+                    title: "Départ le"
                 }
                 MmcTextField {
                     id: fullNameTextField
@@ -79,6 +90,14 @@ Flickable {
                     id:groupedSwitch
                     text: "Réservation Groupée ?"
                 }
+                Button {
+                    id: stkAutreButton
+                    text: "Stock Autres"
+                }
+                Button {
+                    id: paymentButton
+                    text: "Information de paiement"
+                }
             }
         }
     }
@@ -95,24 +114,15 @@ Flickable {
             anchors.horizontalCenter: parent.horizontalCenter
             y: 10
             MmcTextField {
-                id: clientAccountTextField
-                title: "Compte client"
+                id: cardexTextField
+                title: "Cardex"
+                textWidth: 200
             }
-            Button {
-                contentItem: Text {
-                    font.pointSize: 12
-                    text: "..."
-                    opacity: 1.0
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    elide: Text.ElideRight
-                }
-
-                background: Rectangle {
-                    implicitWidth: 10
-                    implicitHeight: 10
-                    border.width: 0
-                }
+            MmcComboBox {
+                title: "Grille tarif"
+            }
+            MmcComboBox {
+                title: "Compte client"
             }
             MmcComboBox {
                 title: "Type client"
@@ -120,6 +130,13 @@ Flickable {
             MmcComboBox {
                 title: "Segmentation"
             }
+            MmcComboBox {
+                title: "Prescripteur"
+            }
+            MmcComboBox {
+                title: "Nationalité"
+            }
+
         }
     }
     Rectangle {

@@ -62,5 +62,7 @@
         <file>View/Pms/HK/CalendarViewForm.ui.qml</file>
         <file>View/Pms/Recep/PendingNoteView.qml</file>
         <file>View/Pms/Recep/PendingNoteViewForm.ui.qml</file>
+        <file>View/Pms/Resa/StockAutreDialog.qml</file>
+        <file>View/Component/MmcPaymentDialog.qml</file>
     </qresource>
 </RCC>
