@@ -64,5 +64,9 @@
         <file>View/Pms/Recep/PendingNoteViewForm.ui.qml</file>
         <file>View/Pms/Resa/StockAutreDialog.qml</file>
         <file>View/Component/MmcPaymentDialog.qml</file>
+        <file>View/Pos/ActivityListView.qml</file>
+        <file>View/Pos/ActivityListViewForm.ui.qml</file>
+        <file>View/Pos/OrderView.qml</file>
+        <file>View/Pos/OrderViewForm.ui.qml</file>
     </qresource>
 </RCC>

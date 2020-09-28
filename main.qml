@@ -70,9 +70,16 @@ ApplicationWindow {
     // Model for POS menu
     ListModel {
         id: posDrawerModel
-        ListElement { title: "Plan de table"; source: "qrc:/View/Pos/" }
+        ListElement { title: "Service"; source: "qrc:/View/Pos/" }
+        ListElement { title: "---Midi"; source: "qrc:/View/Pos/" }
+        ListElement { title: "---Soir"; source: "qrc:/View/Pos/" }
         ListElement { title: "Notes ouvertes"; source: "qrc:/View/Pos/" }
-        ListElement { title: "Notification"; source: "qrc:/View/Pos/" }
+        ListElement { title: "Caisse"; source: "qrc:/View/Pos/" }
+        ListElement { title: "X Serveur"; source: "qrc:/View/Pos/" }
+        ListElement { title: "X Caisse"; source: "qrc:/View/Pos/" }
+        ListElement { title: "Z Caisse"; source: "qrc:/View/Pos/" }
+        ListElement { title: "Tiroir"; source: "qrc:/View/Pos/" }
+        ListElement { title: "Réservation"; source: "qrc:/View/Pos/" }
     }
 
 
@@ -129,6 +136,7 @@ ApplicationWindow {
                         text: "Récéption"
                         onTriggered: {
                             module = 1
+                            tabBar.visible = true
                             mainStackView.replace("qrc:/View/Pms/Recep/PlanningView.qml")
                         }
                     }
@@ -137,6 +145,7 @@ ApplicationWindow {
                         text: "Réservation"
                         onTriggered: {
                             module = 2
+                            tabBar.visible = true
                             mainStackView.replace("qrc:/View/Pms/Resa/PlanningView.qml")
                         }
                     }
@@ -144,7 +153,16 @@ ApplicationWindow {
                         text: "Gouvernante"
                         onTriggered: {
                             module = 3
+                            tabBar.visible = true
                             mainStackView.replace("qrc:/View/Pms/HK/CalendarView.qml")
+                        }
+                    }
+                    Action {
+                        text: "Restaurant"
+                        onTriggered: {
+                            module = 0
+                            tabBar.visible = false
+                            mainStackView.replace("qrc:/View/Pos/ActivityListView.qml")
                         }
                     }
                 }
