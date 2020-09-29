@@ -11,8 +11,8 @@ import "qrc:/View/Component"
 ApplicationWindow {
     id: mainWindow
     visible: true
-    width: 800
-    height: 600
+    width: 1024
+    height: 800
     title: qsTr("MMC - Frontend")
     property int module: 1 // POS = 0, PMS-RECEP  = 1, PMS-RESA = 2, PMS-HOUSEKEEPING = 3
 
@@ -73,7 +73,6 @@ ApplicationWindow {
         ListElement { title: "Service"; source: "qrc:/View/Pos/" }
         ListElement { title: "---Midi"; source: "qrc:/View/Pos/" }
         ListElement { title: "---Soir"; source: "qrc:/View/Pos/" }
-        ListElement { title: "Notes ouvertes"; source: "qrc:/View/Pos/" }
         ListElement { title: "Caisse"; source: "qrc:/View/Pos/" }
         ListElement { title: "X Serveur"; source: "qrc:/View/Pos/" }
         ListElement { title: "X Caisse"; source: "qrc:/View/Pos/" }

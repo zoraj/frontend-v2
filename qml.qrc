@@ -68,5 +68,9 @@
         <file>View/Pos/ActivityListViewForm.ui.qml</file>
         <file>View/Pos/OrderView.qml</file>
         <file>View/Pos/OrderViewForm.ui.qml</file>
+        <file>View/Pos/ProductSearchDialog.qml</file>
+        <file>View/Pos/CheckoutView.qml</file>
+        <file>View/Pos/CheckoutViewForm.ui.qml</file>
+        <file>Script/Country.js</file>
     </qresource>
 </RCC>

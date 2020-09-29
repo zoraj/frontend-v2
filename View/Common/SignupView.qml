@@ -1,10 +1,48 @@
 import QtQuick 2.12
 import cloud.multimicro.mmc.frontend 1.0
+import "qrc:/Script/Country.js" as CountryJS
+
 
 SignupViewForm {
+    // Business Component Initialization
+    Connections {
+        target: _signupViewController
+    }
+    Establishment {
+        id: establishment
+    }
 
+    // UI Component Initialization
+    typeComboBox {
+        comboBoxModel: ["Restaurant","Hotel","Restaurant et Hotel", "Lodge"]
+    }
+    countryComboBox {
+        comboBoxModel: CountryJS.getCountries();
+        role: "name"
+    }
+
+    // View Load
+    Component.onCompleted: {
+    }
+
+    // Event Logic
     validateButton.onClicked: {
-        mainStackView.push("/View/Common/CodeConfirmationView.qml")
+        if (nameTextField.text === "" || typeComboBox.currentIndex === -1 || countryComboBox.currentIndex === -1 ||
+                addressTextField.text === "" || ownerFirstnameTextField.text === "" || email1TextField.text === "" || phoneTextField.text === "") {
+            //popupToast.start(qsTr("Champs obligatoires non renseignés"))
+        }
+        else {
+            establishment.name = nameTextField.text
+            establishment.type = typeEstablishmentModel.get(typeComboBox.currentIndex).key
+            establishment.country = countryModel.get(countryComboBox.currentIndex).key
+            establishment.address = addressTextField.text
+            establishment.ownerFirstName = ownerFirstnameTextField.text
+            establishment.ownerLastName = ownerLastnameTextField.text
+            establishment.email = email1TextField.text
+            establishment.phone = phoneTextField.text
+            _signupViewController.validateButtonClicked(establishment)
+        }
+        //mainStackView.push("/View/Common/CodeConfirmationView.qml")
     }
 
     activateDeviceButton.onClicked: {
@@ -12,14 +50,6 @@ SignupViewForm {
     }
 
     /*
-    Connections {
-        target: _signupViewController
-    }
-
-    EtablissementModel {
-        id: etablissement
-    }
-
     // UI Event
     activateDeviceButton.onClicked: {
         mainStackView.push("/View/Common/CodeConfirmationView.qml")

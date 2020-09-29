@@ -5,12 +5,12 @@ SignupViewController::SignupViewController(QObject *parent) : QObject(parent)
 
 }
 
-void SignupViewController::validateButtonClicked(EtablissementModel *etablissement)
+void SignupViewController::validateButtonClicked(Establishment *establishment)
 {
-    if (etablissement != nullptr) {
+    if (establishment != nullptr) {
         EstablishmentService *establishmentService = new EstablishmentService();
-        qDebug() << etablissement->name;
-        establishmentService->postSignup(*etablissement);
+        qDebug() << establishment->name;
+        establishmentService->postSignup(*establishment);
         QObject::connect(establishmentService, &EstablishmentService::postSignupFinished, [=] (const QByteArray &response, const int status){
             if (status == Constant::HttpStatusCode::OK) {
                 qDebug() << response;

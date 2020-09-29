@@ -5,19 +5,21 @@ import QtQuick.Layouts 1.12
 ColumnLayout {
     property string title
     property int textWidth: 200
-    property ListModel comboBoxModel
-    //property string textRole: textRole
+    property var comboBoxModel
+    property string role
 
     implicitHeight: 200
     implicitWidth: 200
     Label {
         text: title
-        color: "#06a8c4"
+        color: "#374866" //"#06a8c4"
+        font.bold: true
     }
     ComboBox {
         editable: true
         id: comboBox
         Layout.preferredWidth: textWidth
         model: comboBoxModel
+        textRole: role
     }
 }

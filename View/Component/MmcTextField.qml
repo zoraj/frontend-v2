@@ -14,12 +14,15 @@ ColumnLayout {
     implicitWidth: 200
     Label {
         text: title //+ isMandatory ? " *" : ""
-        color: "#06a8c4"
+        color: "#374866" //"#06a8c4"
+        font.bold: true
     }
     TextField {
         id: textField
         echoMode: isPassword ? TextInput.Password : TextInput.Normal
         Layout.preferredWidth: textWidth
         text: value
+        color: "#364764"
+        font.pointSize: 11
     }
 }

@@ -4,13 +4,40 @@ import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.12
 import "qrc:/View/Component"
 
-
 Flickable {
     contentHeight: mainRectangle.height
     width: mainWindow.width / 3
     flickableDirection: Flickable.AutoFlickIfNeeded
     property alias validateButton: validateButton
     property alias activateDeviceButton: activateDeviceButton
+    property alias typeComboBox: typeComboBox
+    property alias countryComboBox: countryComboBox
+
+    Label {
+        id: title1
+        x: 100
+        y: mainWindow.height / 4
+        color: "white"
+        text: "La gestion de votre etablissement en toute sérenité."
+        font.bold: true
+        font.pointSize: 36
+        width: mainWindow.width / 3 + 150
+        clip: true
+        elide: Text.ElideLeft
+        wrapMode: Text.Wrap
+    }
+    Label {
+        anchors.top: title1.bottom
+        anchors.left: title1.left
+        anchors.topMargin: 10
+        color: "white"
+        text: "PMS, POS, Housekeeping. Un email vous sera envoyé après l'inscription contenant le lien de confirmation et l'accès backoffice."
+        font.pointSize: 18
+        width: title1.width
+        clip: true
+        elide: Text.ElideLeft
+        wrapMode: Text.Wrap
+    }
 
     RectangularGlow {
         anchors.fill: mainRectangle
@@ -26,10 +53,11 @@ Flickable {
         color: "white"
         radius: 2
         width: mainWindow.width / 3
-        height: mainWindow.height - 200
+        height: mainWindow.height - 100
         x: mainWindow.width - width - 100
-        y: 100
-        //clip: true
+        y: (mainWindow.height - mainRectangle.height) / 2
+        clip: true
+
         // Title
         Label {
             id: label1
@@ -37,8 +65,9 @@ Flickable {
             width: parent.width
             wrapMode: Label.Wrap
             horizontalAlignment: Qt.AlignHCenter
-            text: "Souscription d'un etablissement \n"
-                + "Create one"
+            text: "Création d'un nouveau \n compte MMC"
+            font.pointSize: 18
+            color: "#374866"
         }
 
         // Form start
@@ -53,17 +82,19 @@ Flickable {
                 title: "Nom de l'etablissement"
                 textWidth: mainRectangle.width - 100
             }
-            ComboBox {
-                editable: true
+            MmcComboBox {
                 id: typeComboBox
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: mainRectangle.width - 100
+                title: "Type"
+                textWidth: mainRectangle.width - 100
             }
-            ComboBox {
-                editable: true
+            MmcComboBox {
                 id: countryComboBox
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: mainRectangle.width - 100
+                title: "Pays"
+                textWidth: mainRectangle.width - 100
             }
             MmcTextField {
                 id: addressTextField
@@ -118,6 +149,7 @@ Flickable {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     elide: Text.ElideRight
+                    color: "#374866"
                 }
 
                 background: Rectangle {
@@ -126,6 +158,7 @@ Flickable {
                     opacity: enabled ? 1 : 0.3
                     border.width: 0
                     radius: 2
+                    color: "transparent"
                 }
             }
         }

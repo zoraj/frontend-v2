@@ -1,13 +1,13 @@
 #pragma once
 #include "BaseService.h"
-#include "Model/EtablissementModel.h"
+#include "Model/Establishment.h"
 
 class EstablishmentService: public BaseService
 {
     Q_OBJECT
   public:
       EstablishmentService();
-      void postSignup(const EtablissementModel &etablishment);
+      void postSignup(const Establishment &etablishment);
 
       void callback(const QByteArray &response, int status) override;
   signals:

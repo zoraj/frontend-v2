@@ -5,7 +5,7 @@ EstablishmentService::EstablishmentService()
 
 }
 
-void EstablishmentService::postSignup(const EtablissementModel &etablishment)
+void EstablishmentService::postSignup(const Establishment &etablishment)
 {
     QJsonObject payload;
     payload.insert("ownerFirstName", etablishment.ownerFirstName);

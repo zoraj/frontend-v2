@@ -95,7 +95,7 @@ HEADERS += \
     ListModel/MmcClientListModel.h \
     ListModel/PmsTypeChambreListModel.h \
     Model/DeviceModel.h \
-    Model/EtablissementModel.h \
+    Model/Establishment.h \
     Model/MmcClientModel.h \
     Model/MmcParametrageModel.h \
     Model/MmcUserModel.h \

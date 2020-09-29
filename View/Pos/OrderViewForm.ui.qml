@@ -9,6 +9,8 @@ Flickable {
     flickableDirection: Flickable.AutoFlickIfNeeded
     property int mainMargin: 10
 
+    property alias productSearchButton: productSearchButton
+
     Rectangle {
         id: headerRectangle
         x: mainMargin
@@ -100,38 +102,60 @@ Flickable {
             }
         }
     }
+
+    // Action Bloc
     Rectangle {
         id: actionRectangle
         anchors.left: totalRectangle.left
         anchors.top: totalRectangle.bottom
         height: mainWindow.height - headerRectangle.height - orderListView.height - totalRectangle.height
         width: totalRectangle.width
-        color: "yellow"
         Grid {
             columns: 3
             spacing: 1
             Button {
+                text: "Annuler"
+                height: actionRectangle.height / 2
+                width: actionRectangle.width  / 3
+            }
+            Button {
                 text: "Offert"
+                height: actionRectangle.height / 2
+                width: actionRectangle.width  / 3
             }
             Button {
                 text: "VAE"
-            }
-            Button {
-                text: "Encaisser"
+                height: actionRectangle.height / 2
+                width: actionRectangle.width  / 3
             }
             Button {
                 text: "Facture"
+                height: actionRectangle.height / 2
+                width: actionRectangle.width  / 3
             }
             Button {
                 text: "Ticket"
+                height: actionRectangle.height / 2
+                width: actionRectangle.width  / 3
             }
             Button {
                 text: "Encaisser"
+                height: actionRectangle.height / 2
+                width: actionRectangle.width  / 3
+                background: Rectangle {
+                    implicitWidth: actionRectangle.width  / 3
+                    implicitHeight: actionRectangle.height / 2
+                    color: "#94c7cf"
+                    border.color: "#26282a"
+                    border.width: 1
+                    radius: 4
+                }
             }
 
         }
     }
 
+    // Product GridView
     GridView {
         id: productGridView
         width: mainWindow.width - headerRectangle.width - 200
@@ -149,7 +173,10 @@ Flickable {
             color: "white"
         }
     }
+
+    // Group Product ListView
     ListView {
+        id: groupProductListView
         width: mainWindow.width - headerRectangle.width - productGridView.width
         height: productGridView.height
         anchors.left: productGridView.right
@@ -163,20 +190,60 @@ Flickable {
             color: "green"
         }
     }
+
+    // Command bloc
     Rectangle {
-        id: functionRectangle
-        width: actionRectangle.width
+        id: commandRectangle
+        width: productGridView.width - 200
         height: totalRectangle.height + actionRectangle.height
         anchors.top: productGridView.bottom
         anchors.left: productGridView.left
+        Grid {
+            columns: 4
+            spacing: 2
+            anchors.fill: parent
+            Button {
+                id: productSearchButton
+                text: "Liste prestations"
+                height: commandRectangle.height / 2
+                width: commandRectangle.width  / 4 - 2
+            }
+            Button {
+                text: "Commande"
+                height: commandRectangle.height / 2
+                width: commandRectangle.width  / 4 - 2
+            }
+            Button {
+                text: "Garniture"
+                height: commandRectangle.height / 2
+                width: commandRectangle.width  / 4 - 2
+            }
+            Button {
+                text: " "
+                height: commandRectangle.height / 2
+                width: commandRectangle.width  / 4 - 2
+            }
+            Button {
+                text: " "
+                height: commandRectangle.height / 2
+                width: commandRectangle.width  / 4 - 2
+            }
+            Button {
+                text: " "
+                height: commandRectangle.height / 2
+                width: commandRectangle.width  / 4 - 2
+            }
+        }
     }
+
+    // Calculator Rectangle
     Rectangle {
         id: calculatorRectangle
-        width: mainWindow.width - totalRectangle.width - functionRectangle.width
-        height: functionRectangle.height
-        anchors.top: functionRectangle.top
-        anchors.left: functionRectangle.right
-        color: "brown"
+        width: 300
+        height: commandRectangle.height
+        anchors.top: commandRectangle.top
+        //anchors.left: functionRectangle.right
+        anchors.right: groupProductListView.right
         Grid {
             columns: 3
             spacing: 1
@@ -242,6 +309,5 @@ Flickable {
             }
 
         }
-
     }
 }
