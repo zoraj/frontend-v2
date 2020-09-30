@@ -72,5 +72,7 @@
         <file>View/Pos/CheckoutView.qml</file>
         <file>View/Pos/CheckoutViewForm.ui.qml</file>
         <file>Script/Country.js</file>
+        <file>View/Component/MmcToast.qml</file>
+        <file>View/Component/MmcToastManager.qml</file>
     </qresource>
 </RCC>

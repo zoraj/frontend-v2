@@ -3,7 +3,8 @@
 #include <QObject>
 #include "Application/ApplicationManager.h"
 #include "Service/DeviceService.h"
-#include "Model/DeviceModel.h"
+#include "Builder/DeviceBuilder.h"
+#include "Model/Device.h"
 #include "Model/MmcParametrageModel.h"
 #include "Cache/MmcParametrageCache.h"
 
@@ -12,7 +13,7 @@ class CodeConfirmationViewController : public QObject
 {
     Q_OBJECT
 private:
-    void persistDeviceInfos(const DeviceModel &device);
+    void persistDeviceInfos(const Device &device);
 public:
     explicit CodeConfirmationViewController(QObject *parent = nullptr);
 

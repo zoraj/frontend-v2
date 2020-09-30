@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     try {
         // This is the first thing to do when we have an instance of rootContect from engine, so we could easily set context property for our view controllers
         ApplicationManager::getInstance()->getAppContext()->rootContext = engine.rootContext();
-
+        ApplicationManager::getInstance();
         // Register class controllers
         SplashViewController splashViewController;
         ApplicationManager::getInstance()->getAppContext()->rootContext->setContextProperty("_splashViewController", &splashViewController);
@@ -55,6 +55,7 @@ int main(int argc, char *argv[])
         // Register All type
         registerQmlType();
 
+        // Load main view
         const QUrl url(QStringLiteral("qrc:/main.qml"));
         QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                          &app, [url](QObject *obj, const QUrl &objUrl) {

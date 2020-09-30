@@ -19,6 +19,11 @@ ApplicationWindow {
     property int moduleIndex: 0
     color: "#eeeeee"
 
+
+    MmcToastManager {
+        id: mainToast
+    }
+
     // Rectangle background during signin and signup
     Rectangle
     {

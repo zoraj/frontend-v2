@@ -1,6 +1,6 @@
 QT += quick websockets sql quickcontrols2
 
-CONFIG += c++11
+CONFIG += c++14
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -68,6 +68,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    Readme.txt \
     icons/gallery/20x20/back.png \
     icons/gallery/20x20/drawer.png \
     icons/gallery/20x20/menu.png \
@@ -85,16 +86,19 @@ DISTFILES += \
 
 HEADERS += \
     Application/ApplicationManager.h \
+    Builder/Builder.h \
+    Builder/DeviceBuilder.h \
     Cache/MmcParametrageCache.h \
     Controller/Common/CodeConfirmationViewController.h \
     Controller/Common/LoginViewController.h \
     Controller/Common/SignupViewController.h \
     Controller/Common/SplashViewController.h \
+    Controller/Controller.h \
     Controller/Pms/CashSaleViewController.h \
     Controller/Pms/PmsBookingDetailViewController.h \
     ListModel/MmcClientListModel.h \
     ListModel/PmsTypeChambreListModel.h \
-    Model/DeviceModel.h \
+    Model/Device.h \
     Model/Establishment.h \
     Model/MmcClientModel.h \
     Model/MmcParametrageModel.h \

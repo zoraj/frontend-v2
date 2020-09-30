@@ -11,9 +11,9 @@ void CodeConfirmationViewController::validateCodeTriggered(const QString &code)
     deviceService->checkCodeConfirmation(code);
     QObject::connect(deviceService, &DeviceService::checkCodeConfirmationFinished, [=] (const QByteArray &response, const int status){
         if (status == Constant::HttpStatusCode::OK) {
-            DeviceModel device = DeviceModel(response);
-            qDebug() << "SUCCESS "<< device.apiKey;
-            persistDeviceInfos(device);
+            DeviceBuilder builder;
+            builder.create(response);
+            persistDeviceInfos(builder.get());
         }
         else {
             qDebug() << "Something went wrong. " + response;
@@ -24,7 +24,7 @@ void CodeConfirmationViewController::validateCodeTriggered(const QString &code)
     });
 }
 
-void CodeConfirmationViewController::persistDeviceInfos(const DeviceModel &device)
+void CodeConfirmationViewController::persistDeviceInfos(const Device &device)
 {
     QList<MmcParametrageModel> settings;
     MmcParametrageModel setting = MmcParametrageModel("UUID", device.uuid);

@@ -7,6 +7,7 @@ ColumnLayout {
     property int textWidth: 200
     property var comboBoxModel
     property string role
+    property int  currentIndex: comboBox.currentIndex
 
     implicitHeight: 200
     implicitWidth: 200

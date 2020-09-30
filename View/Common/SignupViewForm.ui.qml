@@ -3,6 +3,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.12
 import "qrc:/View/Component"
+import cloud.multimicro.mmc.frontend 1.0
 
 Flickable {
     contentHeight: mainRectangle.height
@@ -10,8 +11,14 @@ Flickable {
     flickableDirection: Flickable.AutoFlickIfNeeded
     property alias validateButton: validateButton
     property alias activateDeviceButton: activateDeviceButton
+    property alias nameTextField: nameTextField
     property alias typeComboBox: typeComboBox
     property alias countryComboBox: countryComboBox
+    property alias addressTextField: addressTextField
+    property alias ownerFirstnameTextField: ownerFirstnameTextField
+    property alias ownerLastnameTextField: ownerLastnameTextField
+    property alias email1TextField: email1TextField
+    property alias phoneTextField: phoneTextField
 
     Label {
         id: title1

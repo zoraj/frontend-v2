@@ -7,7 +7,7 @@ class EstablishmentService: public BaseService
     Q_OBJECT
   public:
       EstablishmentService();
-      void postSignup(const Establishment &etablishment);
+      void postSignup(Establishment *etablishment);
 
       void callback(const QByteArray &response, int status) override;
   signals:
