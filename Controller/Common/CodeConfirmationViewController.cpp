@@ -13,7 +13,7 @@ void CodeConfirmationViewController::validateCodeTriggered(const QString &code)
         if (status == Constant::HttpStatusCode::OK) {
             DeviceBuilder builder;
             builder.create(response);
-            persistDeviceInfos(builder.get());
+            persistDeviceInfos(*builder.get());
         }
         else {
             qDebug() << "Something went wrong. " + response;

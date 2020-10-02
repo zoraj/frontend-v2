@@ -8,6 +8,8 @@ class Controller : public QObject
 public:
     Controller() {}
     virtual ~Controller() {}
-    virtual void loadData() const = 0;
-    virtual void saveData() const = 0;
+    virtual void viewDidLoad() const = 0;
+    virtual void viewDidUnload() const = 0;
+signals:
+    virtual void viewDidLoadWithResult(bool result, QString reason) const = 0;
 };

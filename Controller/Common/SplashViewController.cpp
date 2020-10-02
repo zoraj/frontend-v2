@@ -1,10 +1,11 @@
 #include "SplashViewController.h"
 
 // Class Initialisation
+/*
 SplashViewController::SplashViewController(QObject *parent) : QObject(parent)
 {
 
-}
+}*/
 
 // Private methods
 void SplashViewController::loadLocalSettings() const
@@ -17,11 +18,11 @@ void SplashViewController::loadLocalSettings() const
 
 
 // UI Events
-void SplashViewController::viewLoaded()
+void SplashViewController::viewDidLoad() const
 {
     loadLocalSettings();
     bool hasAPIKeyAndUUIDDevice = !ApplicationManager::getInstance()->getAppContext()->apikey.isNull() && !ApplicationManager::getInstance()->getAppContext()->deviceUuid.isNull();
-    emit viewLoadedWithResult(hasAPIKeyAndUUIDDevice);
+    emit viewDidLoadWithResult(hasAPIKeyAndUUIDDevice, "");
 }
 
 

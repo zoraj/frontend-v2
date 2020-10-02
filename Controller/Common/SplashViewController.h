@@ -2,18 +2,20 @@
 
 #include <QObject>
 #include "Application/ApplicationManager.h"
+#include "Controller/Controller.h"
 
-class SplashViewController : public QObject
+class SplashViewController : public Controller
 {
     Q_OBJECT
-public:
-    explicit SplashViewController(QObject *parent = nullptr);
+private:
     void loadLocalSettings() const;
+public:
+    //explicit SplashViewController(QObject *parent = nullptr);
 
     Q_INVOKABLE
-    void viewLoaded();
+    void viewDidLoad() const override ;
 signals:
-    void viewLoadedWithResult(bool result);
+    void viewDidLoadWithResult(bool result, QString reason) const override;
 
 public slots:
 };
