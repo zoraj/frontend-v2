@@ -15,6 +15,7 @@ ApplicationWindow {
     height: 800
     title: qsTr("MMC - Frontend")
     property int module: 1 // POS = 0, PMS-RECEP  = 1, PMS-RESA = 2, PMS-HOUSEKEEPING = 3
+    property int globalPadding: 30
 
     property int moduleIndex: 0
     color: "#eeeeee"

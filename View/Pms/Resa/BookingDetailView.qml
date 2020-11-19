@@ -6,21 +6,6 @@ import "qrc:/View/Component"
 BookingDetailViewForm {
 
 
-    ventillationAndRatingListView {
-        model: 100
-    }
-
-    stkAutreButton {
-        onClicked: {
-            stockAutreDialog.open()
-        }
-    }
-    paymentButton {
-        onClicked: {
-            paymentDialog.open()
-        }
-    }
-
     StockAutreDialog {
         id: stockAutreDialog
     }
@@ -47,19 +32,21 @@ BookingDetailViewForm {
         onSigReloadUI: {
             bookingDetailGeneralInformationView.clientAccountTextField.value = currentHeader.mmcClientName
         }
-    }
+    }*/
 
     Component.onCompleted: {
-        ventillationTab.visible = true
-        pricingTab.visible = false
-        complementaryTab.visible = false
-        arrhesTab.visible = false
-        _pmsBookingDetailViewController.componentCompleted();
+        tabBar.visible = false
+        //ventillationTab.visible = true
+        //pricingTab.visible = false
+        //complementaryTab.visible = false
+        //arrhesTab.visible = false
+        //_pmsBookingDetailViewController.componentCompleted();
 
         //bookingDetailGeneralInformationView
         //BookingDetailRoomRepartitionView
     }
 
+    /*
     PmsNoteEnteteModel {
         id: headerNote;
     }

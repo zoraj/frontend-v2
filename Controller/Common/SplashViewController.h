@@ -2,9 +2,9 @@
 
 #include <QObject>
 #include "Application/ApplicationManager.h"
-#include "Controller/Controller.h"
+#include "Controller/BaseController.h"
 
-class SplashViewController : public Controller
+class SplashViewController : public BaseController
 {
     Q_OBJECT
 private:
@@ -14,6 +14,9 @@ public:
 
     Q_INVOKABLE
     void viewDidLoad() const override ;
+    Q_INVOKABLE
+    void viewDidUnload() const override;
+
 signals:
     void viewDidLoadWithResult(bool result, QString reason) const override;
 

@@ -6,118 +6,140 @@ import "qrc:/View/Component"
 
 Flickable {
     flickableDirection: Flickable.AutoFlickIfNeeded
-    property alias ventillationAndRatingListView: ventillationAndRatingListView
-    property alias stkAutreButton: stkAutreButton
-    property alias paymentButton: paymentButton
-
-    RectangularGlow {
-        anchors.fill: topRectangle
-        glowRadius: 15
-        spread: 0.1
-        color: "lightgrey"
-        cornerRadius: topRectangle.radius + glowRadius
-    }
-
-    RectangularGlow {
-        anchors.fill: clientAccountRectangle
-        glowRadius: 15
-        spread: 0.1
-        color: "lightgrey"
-        cornerRadius: clientAccountRectangle.radius + glowRadius
-    }
 
     Rectangle {
-        id: topRectangle
-        color: "white"
-        width: mainWindow.width - 50
-        height: 200
-        clip: true
-        radius: 2
-        anchors.horizontalCenter: parent.horizontalCenter
-        y: 20
-        ColumnLayout {
-            anchors.horizontalCenter: parent.horizontalCenter
-            spacing: 25
-            y: 25
-            Row {
-                spacing: 20
-                MmcDatePicker {
-                    id: arrivalDatePicker
-                    title: "Arrivée le"
-                }
-                MmcTextField {
-                    id: arrivalHourTextField
-                    title: "à"
-                    textWidth: 50
-                }
-                MmcSpinBox {
-                    id: nbNightSpinBox
-                    title: "Nombre de nuité"
-                    startValue: 1
-                }
-                MmcDatePicker {
-                    id: optionDatePicker
-                    title: "Option"
-                }
-                MmcDatePicker {
-                    id: departureDatePicker
-                    title: "Départ le"
-                }
-                MmcTextField {
-                    id: fullNameTextField
-                    title: "Nom"
-                    textWidth: 400
-                }
+        id: rectangle1
+        width: mainWindow.width / 3
+        height: 90
+        x: globalPadding
+        y: globalPadding
+        Row {
+            anchors.verticalCenter: parent.verticalCenter
+            spacing: 50
+            leftPadding: globalPadding
+            MmcDatePicker {
+                id: arrivalDatePicker
+                title: "Arrivée le"
             }
-            Row {
-                spacing: 20
-                MmcSpinBox {
-                    id: nbRoomSpinBox
-                    title: "Nombre de chambre"
-                    startValue: 1
-                }
-                MmcSpinBox {
-                    id: nbPaxSpinBox
-                    title: "Nombre de pax"
-                    startValue: 1
-                }
-                MmcSpinBox {
-                    id: nbChildSpinBox
-                    title: "Nombre d'enfant"
-                    startValue: 1
-                }
-                Switch {
-                    id:groupedSwitch
-                    text: "Réservation Groupée ?"
-                }
-                Button {
-                    id: stkAutreButton
-                    text: "Stock Autres"
-                }
-                Button {
-                    id: paymentButton
-                    text: "Information de paiement"
-                }
+            MmcTextField {
+                id: arrivalHourTextField
+                title: "à"
+                textWidth: 50
             }
         }
     }
     Rectangle {
-        id: clientAccountRectangle
-        color: "white"
-        width: mainWindow.width - 50
-        height: 100
-        clip: true
-        radius: 2
-        anchors.horizontalCenter: parent.horizontalCenter
-        y: topRectangle.height + 35
-        RowLayout {
+        id: rectangle2
+        width: mainWindow.width / 3 - globalPadding
+        height: rectangle1.height
+        anchors.left: rectangle1.right
+        anchors.leftMargin: 1
+        anchors.top: rectangle1.top
+        Row {
+            anchors.verticalCenter: parent.verticalCenter
+            spacing: 50
+            leftPadding: globalPadding
+            MmcSpinBox {
+                id: nbNightSpinBox
+                title: "Nombre de nuité"
+                startValue: 1
+            }
+        }
+    }
+
+    Rectangle {
+        id: rectangle3
+        width: mainWindow.width / 3  - globalPadding
+        anchors.top: rectangle1.top
+        anchors.left: rectangle2.right
+        anchors.leftMargin: 1
+        height: rectangle1.height
+        Row {
+            anchors.verticalCenter: parent.verticalCenter
+            spacing: 50
+            leftPadding: globalPadding
+
+            MmcDatePicker {
+                id: departureDatePicker
+                title: "Départ le"
+            }
+            /*
+            Switch {
+                id:groupedSwitch
+                text: "Réservation Groupée ?"
+            }*/
+        }
+    }
+    Rectangle {
+        id: rectangle4
+        width: rectangle1.width
+        height: rectangle1.height
+        anchors.top: rectangle1.bottom
+        anchors.left: rectangle1.left
+        anchors.topMargin: 1
+        Row {
+            anchors.verticalCenter: parent.verticalCenter
+            leftPadding: globalPadding
+            MmcTextField {
+                id: fullNameTextField
+                title: "Nom (CARDEX FIELD)"
+                textWidth: rectangle4.width - globalPadding * 2
+            }
+        }
+    }
+    Rectangle {
+        id: rectangle5
+        width: rectangle2.width + rectangle3.width
+        height: rectangle4.height
+        anchors.top: rectangle1.bottom
+        anchors.topMargin: 1
+        anchors.left: rectangle4.right
+        anchors.leftMargin: 1
+        Row {
+            anchors.verticalCenter: parent.verticalCenter
+            spacing: 15
+            leftPadding: globalPadding
+
+            MmcSpinBox {
+                id: nbRoomSpinBox
+                title: "Nombre de chambre"
+                startValue: 1
+            }
+            MmcSpinBox {
+                id: nbPaxSpinBox
+                title: "Nombre de pax"
+                startValue: 1
+            }
+            MmcSpinBox {
+                id: nbChildSpinBox
+                title: "Nombre d'enfant"
+                startValue: 1
+            }
+            Switch {
+                id:groupedSwitch
+                text: "Réservation Groupée ?"
+            }
+        }
+    }
+    Label {
+        id: label1
+        text: "Information"
+        anchors.top: rectangle4.bottom
+        anchors.topMargin: 20
+        anchors.left: rectangle1.left
+    }
+
+    Rectangle {
+        id: rectangle6
+        width: rectangle1.width
+        height: mainWindow.height - rectangle1.height - rectangle4.height - label1.height - 150
+        anchors.left: label1.left
+        anchors.top: label1.bottom
+        anchors.topMargin: 10
+        Column {
+            spacing: 5
             anchors.horizontalCenter: parent.horizontalCenter
             y: 10
-            MmcTextField {
-                id: cardexTextField
-                title: "Cardex"
-                textWidth: 200
-            }
             MmcComboBox {
                 title: "Grille tarif"
             }
@@ -136,113 +158,25 @@ Flickable {
             MmcComboBox {
                 title: "Nationalité"
             }
-
-        }
-    }
-    Rectangle {
-        id: subtitleRectangle
-        width: mainWindow.width - 50
-        height: 40
-        anchors.horizontalCenter: parent.horizontalCenter
-        color: "#06a8c4"
-        y: topRectangle.height + clientAccountRectangle.height + 50
-        Label {
-            text: "Ventillation et tarification"
-            color: "white"
-            y: 10
-            anchors.horizontalCenter: parent.horizontalCenter
         }
     }
 
+    Label {
+        id: label2
+        text: "Tarif et ventillation"
+        anchors.top: rectangle5.bottom
+        anchors.topMargin: 20
+        anchors.left: rectangle6.right
+    }
+
     Rectangle {
-        id: bottomRectangle
-        //anchors.top: topRectangle.bottom
-        color: "white"
-        width: mainWindow.width - 50
-        height: mainWindow.height - topRectangle.height + subtitleRectangle.height - clientAccountRectangle.height - 200
-        clip: true
-        radius: 2
-        anchors.horizontalCenter: parent.horizontalCenter
-        y: topRectangle.height + subtitleRectangle.height + clientAccountRectangle.height + 50
+        id: rectangle7
+        width: rectangle5.width
+        height: rectangle6.height
+        anchors.top: rectangle6.top
+        anchors.left: rectangle6.right
+        anchors.leftMargin: 1
 
-        ListView {
-            id: ventillationAndRatingListView
-            anchors.fill: parent
-            clip: true
-            delegate: RowLayout {
-                width: ventillationAndRatingListView.width - 10
-                anchors.horizontalCenter: parent.horizontalCenter
-                x: 10
-                spacing: 20
-                Label {
-                    text: "1"
-                }
-                MmcComboBox {
-                    //id: roomType
-                }
-                MmcComboBox {
-                    //id:
-                }
-                MmcTextField {
-                    //title: "Nb Adulte"
-                    textWidth: 60
-                }
-                MmcTextField {
-                    title: ""
-                    textWidth: 60
-                }
-                MmcDatePicker {
-                    title: ""
-                }
-                MmcDatePicker {
-                    title: ""
-                }
-                MmcComboBox {
-                    //title: "Tarif"
-                }
-                MmcComboBox {
-                    //title: "Base"
-                    textWidth: 60
-                }
-                Label {
-                    text: "1000"
-                }
 
-            }
-            header: Row {
-                spacing: 80
-                anchors.horizontalCenter: parent.horizontalCenter
-                Label {
-                    text: "Nb Chb"
-                }
-                Label {
-                    text: "Type de chambre"
-                }
-                Label {
-                    text: "#chambre"
-                }
-                Label {
-                    text: "Nb Adulte"
-                }
-                Label {
-                    text: "Nb Enf."
-                }
-                Label {
-                    text: "Date début."
-                }
-                Label {
-                    text: "Date fin."
-                }
-                Label {
-                    text: "Tarif"
-                }
-                Label {
-                    text: "Base"
-                }
-                Label {
-                    text: "Montant"
-                }
-            }
-        }
     }
 }

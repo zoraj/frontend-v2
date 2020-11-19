@@ -21,8 +21,14 @@ void SplashViewController::loadLocalSettings() const
 void SplashViewController::viewDidLoad() const
 {
     loadLocalSettings();
-    bool hasAPIKeyAndUUIDDevice = !ApplicationManager::getInstance()->getAppContext()->apikey.isNull() && !ApplicationManager::getInstance()->getAppContext()->deviceUuid.isNull();
-    emit viewDidLoadWithResult(hasAPIKeyAndUUIDDevice, "");
+    bool hasAPIKeyAndUUIDDevice = !ApplicationManager::getInstance()->getAppContext()->apikey.isNull()
+            && !ApplicationManager::getInstance()->getAppContext()->deviceUuid.isNull();
+    emit viewDidLoadWithResult(hasAPIKeyAndUUIDDevice, "SUCCESS");
+}
+
+void SplashViewController::viewDidUnload() const
+{
+
 }
 
 

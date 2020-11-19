@@ -5,9 +5,9 @@
 namespace Constant {
 
 #ifdef QT_DEBUG
-    static const QString WS_ROOT_URL = "http://localdev:8080/api";
-    static const QString WS_E_URL = "http://localdev:8080/e/api"; // e for Establishment
-    static const QString MESSAGE_ENQ_URI = "ws://localdev:8080/messaging/?api-key=%1";
+    static const QString WS_ROOT_URL = "http://192.168.1.108:8070/api";
+    static const QString WS_E_URL = "http://192.168.1.108:8070/e/api"; // e for Establishment
+    static const QString MESSAGE_ENQ_URI = "ws://192.168.1.108.8070/messaging/?api-key=%1";
 #else
     static const QString WS_ROOT_URL = "https://api.bymmc.com";
     static const QString WS_E_URL = "https://bymmc.com";

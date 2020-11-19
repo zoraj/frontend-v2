@@ -1,24 +1,44 @@
-To generate executable
+To generate Win 64 executable
 windeployqt c:\Temp\Exe  --qmldir c:\Projects\MM\Frontend\Views
 
 
-/*****************************/
-QML Code convention
-// Business Component Initialization
+QML Code convention. Copy paste it everytime you create a new qml
+All UI should be inside .ui.qml
+
+/ ************************  Start Component Initialization *************************** /
 Connections {
 }
+/ ************************  End Component Initialization ***************************** /
 
-// UI Component Initialization
+
+/ ************************  Start UI Component Initialization ************************ /
 ListModel {
 }
-// View Load
+
+/ ************************  Start View Did Load ************************************** /
 Component.onCompleted: {
 
 }
-// Event Logic
+/ ************************  End View Did Load **************************************** /
+
+/ ************************  Start View Did Unload ************************************** /
+
+
+/ ************************  End View Did Unload **************************************** /
+
+
+/ ************************  Start Event Logic **************************************** /
 validateButton.onClicked: {
+
+}
+/ ************************  End Event Logic ****************************************** /
+
+
+/ ************************  Start User function ************************************** /
+validateButton.onClicked: {
+
 }
 
-// User function
+/ ************************  End User function **************************************** /
 
-/*****************************/
+

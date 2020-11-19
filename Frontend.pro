@@ -89,11 +89,11 @@ HEADERS += \
     Builder/Builder.h \
     Builder/DeviceBuilder.h \
     Cache/MmcParametrageCache.h \
+    Controller/BaseController.h \
     Controller/Common/CodeConfirmationViewController.h \
     Controller/Common/LoginViewController.h \
     Controller/Common/SignupViewController.h \
     Controller/Common/SplashViewController.h \
-    Controller/Controller.h \
     Controller/Pms/CashSaleViewController.h \
     Controller/Pms/PmsBookingDetailViewController.h \
     ListModel/MmcClientListModel.h \

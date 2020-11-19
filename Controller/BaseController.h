@@ -2,14 +2,13 @@
 
 #include <QObject>
 
-class Controller : public QObject
+class BaseController : public QObject
 {
     Q_OBJECT
 public:
-    Controller() {}
-    virtual ~Controller() {}
+    BaseController() {}
+    virtual ~BaseController() {}
     virtual void viewDidLoad() const = 0;
     virtual void viewDidUnload() const = 0;
-signals:
     virtual void viewDidLoadWithResult(bool result, QString reason) const = 0;
 };

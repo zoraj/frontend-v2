@@ -5,8 +5,9 @@ SplashViewForm {
         target: _splashViewController
 
         onViewDidLoadWithResult: {
-            if (result)
-                mainStackView.replace(result ? "qrc:/View/Common/LoginView.qml" : "qrc:/View/Common/SignupView.qml")
+            mainStackView.replace(result ? "qrc:/View/Common/LoginView.qml" : "qrc:/View/Common/SignupView.qml")
+            if(!result)
+                console.log("Either no UUID or APIKEY")
         }
     }
 
