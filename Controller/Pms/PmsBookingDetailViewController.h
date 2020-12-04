@@ -36,8 +36,6 @@ private:
 public:
     explicit PmsBookingDetailViewController(QObject *parent = nullptr);
 
-
-
     Q_INVOKABLE
     void validateButtonClicked(PmsNoteEnteteModel *pHeaderNote);
     Q_INVOKABLE

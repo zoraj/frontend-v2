@@ -42,3 +42,24 @@ validateButton.onClicked: {
 / ************************  End User function **************************************** /
 
 
+Class code convention
+// Public Methods
+// Constructor
+
+// UI Events
+viewDidLoad() const
+
+viewDidUnload() const
+
+
+// Private Methods
+void persistData()
+
+void loadData()
+
+
+
+
+
+
+
